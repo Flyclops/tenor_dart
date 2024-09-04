@@ -1,0 +1,6 @@
+include: package:dart_analysis_options/analysis_options.yaml
+
+analyzer:
+  exclude:
+    - "lib/src/utilities/logger_print.dart"
+    - "lib/src/test_resources/external_mocks/*.dart"
