@@ -59,7 +59,6 @@ class _MyHomePageState extends State<MyHomePage> {
     /// Search GIFs for "marvel" keyword
     ///
     final searchResponse = await api.search('marvel', limit: 5);
-    print(searchResponse);
     if (searchResponse?.results.isNotEmpty ?? false) {
       setState(() {
         searchResults = searchResponse!.results;

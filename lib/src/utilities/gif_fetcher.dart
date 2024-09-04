@@ -1,10 +1,10 @@
 import 'package:tenor_dart/src/constants/constants.dart';
 import 'package:tenor_dart/src/models/response.dart';
-import 'package:tenor_dart/src/service/server_request.dart';
+import 'package:tenor_dart/src/utilities/utilities.dart';
 
 /// Request Gif with `Search` parameter
 Future<TenorResponse?> privateRequestGif(
-  Endpoint endPoint,
+  TenorEndpoint endPoint,
   String keys, {
   bool canShare = false,
   int limit = 1,

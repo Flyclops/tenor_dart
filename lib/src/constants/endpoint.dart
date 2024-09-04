@@ -1,5 +1,5 @@
 // Implemented endpoints from the [Tenor API](https://developers.google.com/tenor/guides/endpoints)
-enum Endpoint {
+enum TenorEndpoint {
   /// [More Info](https://developers.google.com/tenor/guides/endpoints#autocomplete) from the Tenor API Docs.
   autocomplete,
 

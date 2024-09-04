@@ -1,8 +1,7 @@
 import 'package:tenor_dart/src/constants/constants.dart';
 import 'package:tenor_dart/src/models/category.dart';
 import 'package:tenor_dart/src/models/response.dart';
-import 'package:tenor_dart/src/service/gif_fetcher.dart';
-import 'package:tenor_dart/src/service/server_request.dart';
+import 'package:tenor_dart/src/utilities/utilities.dart';
 
 /// A client to interact with the [Tenor API v2](https://developers.google.com/tenor/guides/quickstart).
 class Tenor {
@@ -66,7 +65,7 @@ class Tenor {
       'locale': locale,
     });
     return await privateRequestGif(
-      Endpoint.featured,
+      TenorEndpoint.featured,
       path,
       contentFilter: contentFilter,
       limit: limit,
@@ -107,7 +106,7 @@ class Tenor {
       'random': random,
     });
     return await privateRequestGif(
-      Endpoint.search,
+      TenorEndpoint.search,
       path,
       limit: limit,
       contentFilter: contentFilter,
@@ -133,7 +132,7 @@ class Tenor {
     int limit = 20,
   }) async {
     // setup path
-    var path = Endpoint.search_suggestions.name.withQueryParams({
+    var path = TenorEndpoint.search_suggestions.name.withQueryParams({
       'key': apiKey,
       'q': search,
       'client_key': clientKey,
@@ -163,7 +162,7 @@ class Tenor {
     int limit = 20,
   }) async {
     // setup path
-    var path = Endpoint.trending_terms.name.withQueryParams({
+    var path = TenorEndpoint.trending_terms.name.withQueryParams({
       'key': apiKey,
       'client_key': clientKey,
       'country': country,
@@ -195,7 +194,7 @@ class Tenor {
     int limit = 20,
   }) async {
     // setup path
-    var path = Endpoint.autocomplete.name.withQueryParams({
+    var path = TenorEndpoint.autocomplete.name.withQueryParams({
       'key': apiKey,
       'q': search,
       'client_key': clientKey,
@@ -215,7 +214,7 @@ class Tenor {
 
   /// Returns a `List<TenorCategory>` of GIF categories associated with the provided `TenorCategoryType`.
   ///
-  /// Each `TenorCategory` includes a corresponding `path` to use if the user clicks on the category. The `path` includes any parameters from the original call to the Categories endpoint.
+  /// Each `TenorCategory` includes a corresponding `path` to use if the user clicks on the category. The `path` includes any parameters from the original call to the Categories TenorEndpoint.
   ///
   /// Documentation: https://developers.google.com/tenor/guides/endpoints#categories
   ///
@@ -227,7 +226,7 @@ class Tenor {
     TenorCategoryType categoryType = TenorCategoryType.featured,
   }) async {
     // setup path
-    var path = Endpoint.categories.name.withQueryParams({
+    var path = TenorEndpoint.categories.name.withQueryParams({
       'key': apiKey,
       'client_key': clientKey,
       'country': country,
@@ -262,7 +261,7 @@ class Tenor {
     String? search,
   }) async {
     // setup path
-    var path = Endpoint.registershare.name.withQueryParams({
+    var path = TenorEndpoint.registershare.name.withQueryParams({
       'key': apiKey,
       'id': id,
       'client_key': clientKey,
@@ -277,30 +276,5 @@ class Tenor {
       return true;
     }
     return false;
-  }
-}
-
-extension StringX on String {
-  // with query params
-  String withQueryParams(
-    Map<String, dynamic> queryParams, {
-    bool extend = false,
-  }) {
-    var res = this;
-
-    if (queryParams.isNotEmpty) {
-      res += extend ? '&' : '?';
-
-      queryParams.forEach((key, dynamic value) {
-        if (value == null) return;
-
-        if (value is String && value.isEmpty) return;
-
-        res += '$key=$value&';
-      });
-      res = res.substring(0, res.length - 1);
-    }
-
-    return res;
   }
 }

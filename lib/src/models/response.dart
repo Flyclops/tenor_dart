@@ -2,8 +2,8 @@ import 'dart:convert';
 
 import 'package:json_annotation/json_annotation.dart';
 import 'package:tenor_dart/src/constants/constants.dart';
-import 'package:tenor_dart/src/service/gif_fetcher.dart';
-import 'package:tenor_dart/tenor_dart.dart';
+import 'package:tenor_dart/src/models/models.dart';
+import 'package:tenor_dart/src/utilities/utilities.dart';
 
 part 'response.g.dart';
 
@@ -32,7 +32,7 @@ class TenorResponse {
   final TenorAspectRatioRange aspectRatioRange;
 
   @JsonKey(name: 'endpoint')
-  final Endpoint? endpoint;
+  final TenorEndpoint? endpoint;
 
   TenorResponse({
     required this.results,
