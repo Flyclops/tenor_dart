@@ -2,11 +2,10 @@ import 'package:tenor_dart/src/constants/constants.dart';
 import 'package:tenor_dart/src/models/response.dart';
 import 'package:tenor_dart/src/utilities/utilities.dart';
 
-/// Request Gif with `Search` parameter
-Future<TenorResponse?> privateRequestGif(
+/// Shared functionality between Search and Featured endpoints.
+Future<TenorResponse?> getGifs(
   TenorEndpoint endPoint,
-  String keys, {
-  bool canShare = false,
+  String parameters, {
   int limit = 1,
   TenorContentFilter? contentFilter,
   TenorAspectRatioRange? aspectRatioRange,
@@ -15,7 +14,7 @@ Future<TenorResponse?> privateRequestGif(
   bool sticker = false,
   bool random = false,
 }) async {
-  var path = endPoint.name + keys;
+  var path = endPoint.name + parameters;
 
   path += '&limit=${limit.clamp(1, 50)}';
 
@@ -45,7 +44,7 @@ Future<TenorResponse?> privateRequestGif(
       {
         ...data,
         'endpoint': endPoint.name,
-        'keys': keys,
+        'parameters': parameters,
       },
     );
   }

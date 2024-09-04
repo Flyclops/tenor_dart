@@ -1,5 +1,4 @@
 extension StringX on String {
-  // with query params
   String withQueryParams(
     Map<String, dynamic> queryParams, {
     bool extend = false,

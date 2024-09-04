@@ -1,16 +1,16 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:tenor_dart/src/constants/constants.dart';
+
 Future serverRequest(String url) async {
-  var httpClient = HttpClient();
-  var request = await httpClient.getUrl(
-    Uri.parse(
-      'https://tenor.googleapis.com/v2/' + url,
-    ),
+  final httpClient = HttpClient();
+  final request = await httpClient.getUrl(
+    Uri.parse(TENOR_API_URI + url),
   );
-  var response = await request.close();
+  final response = await request.close();
   if (response.statusCode == 200) {
-    var json = await utf8.decoder.bind(response).join();
+    final json = await utf8.decoder.bind(response).join();
     return jsonDecode(json);
   } else {
     throw 'Something went wrong. Status code: ${response.statusCode}';

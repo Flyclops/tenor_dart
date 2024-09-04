@@ -57,16 +57,16 @@ class Tenor {
     bool sticker = false,
     String? pos,
   }) async {
-    // setup path
-    var path = ''.withQueryParams({
+    // setup parameters
+    var parameters = ''.withQueryParams({
       'key': apiKey,
       'client_key': clientKey,
       'country': country,
       'locale': locale,
     });
-    return await privateRequestGif(
+    return await getGifs(
       TenorEndpoint.featured,
-      path,
+      parameters,
       contentFilter: contentFilter,
       limit: limit,
       mediaFilter: mediaFilter,
@@ -96,8 +96,8 @@ class Tenor {
     bool sticker = false,
     bool? random,
   }) async {
-    // setup path
-    var path = ''.withQueryParams({
+    // setup parameters
+    var parameters = ''.withQueryParams({
       'key': apiKey,
       'q': search,
       'client_key': clientKey,
@@ -105,9 +105,9 @@ class Tenor {
       'locale': locale,
       'random': random,
     });
-    return await privateRequestGif(
+    return await getGifs(
       TenorEndpoint.search,
-      path,
+      parameters,
       limit: limit,
       contentFilter: contentFilter,
       aspectRatioRange: aspectRatioRange,

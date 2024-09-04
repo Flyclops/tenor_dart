@@ -22,8 +22,8 @@ class TenorResponse {
   @JsonKey(name: 'contentFilter')
   final TenorContentFilter contentFilter;
 
-  @JsonKey(name: 'keys')
-  final String? keys;
+  @JsonKey(name: 'parameters')
+  final String? parameters;
 
   @JsonKey(name: 'mediaFilter')
   final List<String>? mediaFilter;
@@ -37,7 +37,7 @@ class TenorResponse {
   TenorResponse({
     required this.results,
     this.endpoint,
-    this.keys,
+    this.parameters,
     this.next,
     this.contentFilter = TenorContentFilter.off,
     this.mediaFilter = const [TenorMediaFormat.tinygif],
@@ -56,9 +56,9 @@ class TenorResponse {
   String toString() => _encoder.convert(toJson());
 
   Future<TenorResponse?> fetchNext({int limit = 1}) {
-    return privateRequestGif(
+    return getGifs(
       endpoint!,
-      keys!,
+      parameters!,
       limit: limit,
       contentFilter: contentFilter,
       aspectRatioRange: aspectRatioRange,

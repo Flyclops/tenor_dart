@@ -11,8 +11,8 @@ TenorResponse _$TenorResponseFromJson(Map<String, dynamic> json) =>
       results: (json['results'] as List<dynamic>)
           .map((e) => TenorResult.fromJson(e as Map<String, dynamic>))
           .toList(),
-      endpoint: $enumDecodeNullable(_$EndpointEnumMap, json['endpoint']),
-      keys: json['keys'] as String?,
+      endpoint: $enumDecodeNullable(_$TenorEndpointEnumMap, json['endpoint']),
+      parameters: json['parameters'] as String?,
       next: json['next'] as String?,
       contentFilter: $enumDecodeNullable(
               _$TenorContentFilterEnumMap, json['contentFilter']) ??
@@ -31,22 +31,22 @@ Map<String, dynamic> _$TenorResponseToJson(TenorResponse instance) =>
       'results': instance.results.map((e) => e.toJson()).toList(),
       'next': instance.next,
       'contentFilter': _$TenorContentFilterEnumMap[instance.contentFilter]!,
-      'keys': instance.keys,
+      'parameters': instance.parameters,
       'mediaFilter': instance.mediaFilter,
       'aspectRatioRange':
           _$TenorAspectRatioRangeEnumMap[instance.aspectRatioRange]!,
-      'endpoint': _$EndpointEnumMap[instance.endpoint],
+      'endpoint': _$TenorEndpointEnumMap[instance.endpoint],
     };
 
-const _$EndpointEnumMap = {
-  Endpoint.autocomplete: 'autocomplete',
-  Endpoint.categories: 'categories',
-  Endpoint.featured: 'featured',
-  Endpoint.posts: 'posts',
-  Endpoint.registershare: 'registershare',
-  Endpoint.search: 'search',
-  Endpoint.search_suggestions: 'search_suggestions',
-  Endpoint.trending_terms: 'trending_terms',
+const _$TenorEndpointEnumMap = {
+  TenorEndpoint.autocomplete: 'autocomplete',
+  TenorEndpoint.categories: 'categories',
+  TenorEndpoint.featured: 'featured',
+  TenorEndpoint.posts: 'posts',
+  TenorEndpoint.registershare: 'registershare',
+  TenorEndpoint.search: 'search',
+  TenorEndpoint.search_suggestions: 'search_suggestions',
+  TenorEndpoint.trending_terms: 'trending_terms',
 };
 
 const _$TenorContentFilterEnumMap = {

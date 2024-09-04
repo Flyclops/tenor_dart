@@ -3,3 +3,5 @@ export 'category_type.dart';
 export 'content_filter.dart';
 export 'endpoint.dart';
 export 'media_format.dart';
+
+const TENOR_API_URI = 'https://tenor.googleapis.com/v2/';
