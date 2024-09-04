@@ -30,3 +30,4 @@ A client to interact directly with the [Tenor API v2](https://developers.google.
 # What's next?
 
 - Documentation
+- Implement Posts endpoint

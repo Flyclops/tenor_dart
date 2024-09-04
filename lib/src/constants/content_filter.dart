@@ -1,4 +1,6 @@
 /// Filters are [designed](https://developers.google.com/tenor/guides/content-filtering) to map to the Motion Picture Association (MPA).
+///
+/// https://developers.google.com/tenor/guides/content-filtering
 enum TenorContentFilter {
   /// MPA Rating: G
   high,

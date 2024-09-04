@@ -10,6 +10,14 @@ class TenorCategory {
   static const _encoder = JsonEncoder.withIndent('  ');
   static const _decoder = JsonDecoder();
 
+  /// The search term that corresponds to the category. The search term is translated to match the locale of the corresponding request.
+  @JsonKey(name: 'searchterm', disallowNullValue: true)
+  final String searchTerm;
+
+  /// The search URL to request if the user selects the category.
+  @JsonKey(name: 'path', disallowNullValue: true)
+  final String path;
+
   /// A URL to the media source for the category's example GIF
   @JsonKey(name: 'image', disallowNullValue: true)
   final String image;
@@ -18,19 +26,11 @@ class TenorCategory {
   @JsonKey(name: 'name', disallowNullValue: true)
   final String name;
 
-  /// The search URL to request if the user selects the category.
-  @JsonKey(name: 'path', disallowNullValue: true)
-  final String path;
-
-  /// The search term that corresponds to the category. The search term is translated to match the locale of the corresponding request.
-  @JsonKey(name: 'searchterm', disallowNullValue: true)
-  final String searchTerm;
-
   TenorCategory({
+    required this.searchTerm,
+    required this.path,
     required this.image,
     required this.name,
-    required this.path,
-    required this.searchTerm,
   });
 
   factory TenorCategory.fromJson(Map<String, dynamic> json) =>

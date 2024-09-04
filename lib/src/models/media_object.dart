@@ -10,6 +10,10 @@ class TenorMediaObject {
   static const _encoder = JsonEncoder.withIndent('  ');
   static const _decoder = JsonDecoder();
 
+  /// A URL to the media source
+  @JsonKey(name: 'url')
+  final String url;
+
   /// Width and height of the media in pixels
   @JsonKey(name: 'dims')
   final List<int> dims;
@@ -22,17 +26,13 @@ class TenorMediaObject {
   @JsonKey(name: 'size')
   final int size;
 
-  /// A URL to the media source
-  @JsonKey(name: 'url')
-  final String url;
-
   double get aspectRatio => dims.first / dims.last;
 
   TenorMediaObject({
+    required this.url,
     required this.dims,
     required this.duration,
     required this.size,
-    required this.url,
   });
 
   factory TenorMediaObject.fromJson(Map<String, dynamic> json) =>

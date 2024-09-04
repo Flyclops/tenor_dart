@@ -2,8 +2,7 @@ import 'dart:convert';
 
 import 'package:equatable/equatable.dart';
 import 'package:tenor_dart/src/constants/constants.dart';
-import 'package:tenor_dart/src/constants/media_format.dart';
-import 'package:tenor_dart/src/models/tenor_result.dart';
+import 'package:tenor_dart/src/models/result.dart';
 import 'package:tenor_dart/src/service/gif_fetcher.dart';
 
 class TenorResponse extends Equatable {
@@ -27,7 +26,7 @@ class TenorResponse extends Equatable {
 
   Map<String, dynamic> toMap() {
     return {
-      'results': results.map((x) => x.toMap()).toList(),
+      'results': results.map((x) => x.toJson()).toList(),
       'next': next,
       'contentFilter': contentFilter.name,
       'mediaFilter': mediaFilter?.join(','),
@@ -45,7 +44,7 @@ class TenorResponse extends Equatable {
     return TenorResponse(
       results: List<TenorResult>.from(
         map['results']?.map(
-              (x) => TenorResult.fromMap(x, canShare: canShare, keys: keys),
+              (x) => TenorResult.fromJson(x),
             ) ??
             <TenorResult>[],
       ),

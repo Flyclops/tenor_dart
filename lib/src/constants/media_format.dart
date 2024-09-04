@@ -1,3 +1,5 @@
+/// A class contianing all the media formats supported by Tenor API.
+///
 /// https://developers.google.com/tenor/guides/response-objects-and-errors#content-formats
 class TenorMediaFormat {
   static const String preview = "preview";

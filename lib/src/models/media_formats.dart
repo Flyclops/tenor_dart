@@ -6,7 +6,7 @@ import 'package:tenor_dart/src/models/media_object.dart';
 
 part 'media_formats.g.dart';
 
-/// Based on [media response object](https://developers.google.com/tenor/guides/response-objects-and-errors#media-object) from the Tenor API.
+/// Based on [content formats](https://developers.google.com/tenor/guides/response-objects-and-errors#content-formats) from the Tenor API.
 ///
 /// For mobile, use the nano- or tiny-sized files for previews and the tiny-sized files for shares.
 @JsonSerializable(explicitToJson: true)
@@ -68,7 +68,7 @@ class TenorMediaFormats {
   @JsonKey(name: TenorMediaFormat.nanogifTransparent)
   final TenorMediaObject? nanogifTransparent;
 
-  TenorMediaFormats({
+  const TenorMediaFormats({
     this.preview,
     this.gif,
     this.mediumgif,
