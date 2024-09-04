@@ -1,7 +1,6 @@
 import 'package:tenor_dart/src/constants/constants.dart';
-import 'package:tenor_dart/src/constants/media_format.dart';
 import 'package:tenor_dart/src/models/category.dart';
-import 'package:tenor_dart/src/models/tenor_response.dart';
+import 'package:tenor_dart/src/models/response.dart';
 import 'package:tenor_dart/src/service/gif_fetcher.dart';
 import 'package:tenor_dart/src/service/server_request.dart';
 

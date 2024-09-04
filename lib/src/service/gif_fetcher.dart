@@ -1,5 +1,5 @@
 import 'package:tenor_dart/src/constants/constants.dart';
-import 'package:tenor_dart/src/models/tenor_response.dart';
+import 'package:tenor_dart/src/models/response.dart';
 import 'package:tenor_dart/src/service/server_request.dart';
 
 /// Request Gif with `Search` parameter
@@ -38,16 +38,15 @@ Future<TenorResponse?> privateRequestGif(
     path += '&pos=$pos';
   }
 
-  print('path $path');
-
   var data = await serverRequest(path);
   TenorResponse? res;
   if (data != null && data.length > 0) {
-    res = TenorResponse.fromMap(
-      data,
-      endPoint: endPoint,
-      keys: keys,
-      canShare: canShare,
+    res = TenorResponse.fromJson(
+      {
+        ...data,
+        'endpoint': endPoint.name,
+        'keys': keys,
+      },
     );
   }
   return res;

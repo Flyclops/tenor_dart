@@ -13,7 +13,6 @@ Future serverRequest(String url) async {
     var json = await utf8.decoder.bind(response).join();
     return jsonDecode(json);
   } else {
-    // something went wrong :(
-    return [];
+    throw 'Something went wrong. Status code: ${response.statusCode}';
   }
 }
