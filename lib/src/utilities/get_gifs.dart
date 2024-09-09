@@ -25,13 +25,13 @@ Future<TenorResponse?> getGifs(
     path += '&random=true';
   }
   if (contentFilter != null) {
-    path += '&contentfilter=' + contentFilter.name;
+    path += '&contentfilter=${contentFilter.name}';
   }
   if (mediaFilter != null) {
-    path += '&media_filter=' + mediaFilter.join(',');
+    path += '&media_filter=${mediaFilter.join(',')}';
   }
   if (aspectRatioRange != null) {
-    path += '&ar_range=' + aspectRatioRange.name;
+    path += '&ar_range=${aspectRatioRange.name}';
   }
   if (pos != null) {
     path += '&pos=$pos';

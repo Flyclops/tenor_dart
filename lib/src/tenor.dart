@@ -32,15 +32,13 @@ class Tenor {
   /// You can use the country code that you provide in locale to differentiate between dialects of the given language.
   final String locale;
 
-  Tenor({
+  const Tenor({
     required this.apiKey,
     this.clientKey,
     this.contentFilter = TenorContentFilter.off,
     this.country = 'US',
     this.locale = 'en_US',
-  }) {
-    assert(apiKey.trim() != '', 'API Key is empty. Pass a valid API key.');
-  }
+  });
 
   /// Get a JSON object that contains a list of the current global featured GIFs. Tenor updates the featured stream regularly throughout the day.
   ///

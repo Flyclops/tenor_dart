@@ -14,7 +14,7 @@ class TenorMediaObject {
   @JsonKey(name: 'url')
   final String url;
 
-  /// Width and height of the media in pixels
+  /// Width _(first)_ and height _(last)_ of the media in pixels
   @JsonKey(name: 'dims')
   final List<int> dims;
 
@@ -26,6 +26,7 @@ class TenorMediaObject {
   @JsonKey(name: 'size')
   final int size;
 
+  /// width/height
   double get aspectRatio => dims.first / dims.last;
 
   TenorMediaObject({

@@ -5,7 +5,7 @@ import 'package:tenor_dart/src/constants/constants.dart';
 
 Future serverRequest(String url) async {
   final response = await http.Client().get(
-    Uri.parse(TENOR_API_URI + url),
+    Uri.parse(tenorApiUrl + url),
   );
 
   if (response.statusCode == 200) {

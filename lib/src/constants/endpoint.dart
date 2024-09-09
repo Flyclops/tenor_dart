@@ -1,4 +1,6 @@
-// Implemented endpoints from the [Tenor API](https://developers.google.com/tenor/guides/endpoints)
+// ignore_for_file: constant_identifier_names
+
+/// Implemented endpoints from the [Tenor API](https://developers.google.com/tenor/guides/endpoints)
 enum TenorEndpoint {
   /// [More Info](https://developers.google.com/tenor/guides/endpoints#autocomplete) from the Tenor API Docs.
   autocomplete,
