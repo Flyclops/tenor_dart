@@ -1,11 +1,12 @@
 import 'dart:convert';
 
 import 'package:json_annotation/json_annotation.dart';
+import 'package:tenor_dart/src/models/media_object_dimensions.dart';
 
 part 'media_object.g.dart';
 
 /// Based on [media response object](https://developers.google.com/tenor/guides/response-objects-and-errors#media-object) from the Tenor API.
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class TenorMediaObject {
   static const _encoder = JsonEncoder.withIndent('  ');
   static const _decoder = JsonDecoder();
@@ -15,8 +16,8 @@ class TenorMediaObject {
   final String url;
 
   /// Width _(first)_ and height _(last)_ of the media in pixels
-  @JsonKey(name: 'dims')
-  final List<int> dims;
+  @JsonKey(name: 'dims', fromJson: dimensionsFromJson)
+  final TenorMediaObjectDimensions dimensions;
 
   /// Represents the time in seconds for one loop of the content. If the content is static, the duration is set to 0.
   @JsonKey(name: 'duration', defaultValue: 0)
@@ -26,12 +27,9 @@ class TenorMediaObject {
   @JsonKey(name: 'size')
   final int size;
 
-  /// width/height
-  double get aspectRatio => dims.first / dims.last;
-
   TenorMediaObject({
     required this.url,
-    required this.dims,
+    required this.dimensions,
     required this.duration,
     required this.size,
   });
@@ -46,4 +44,10 @@ class TenorMediaObject {
 
   @override
   String toString() => _encoder.convert(toJson());
+
+  static dimensionsFromJson(List<dynamic> json) {
+    return TenorMediaObjectDimensions.fromJson({
+      'dims': json,
+    });
+  }
 }
