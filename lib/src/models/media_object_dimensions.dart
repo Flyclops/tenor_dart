@@ -1,14 +1,9 @@
-import 'dart:convert';
-
 import 'package:json_annotation/json_annotation.dart';
 
 part 'media_object_dimensions.g.dart';
 
 @JsonSerializable()
 class TenorMediaObjectDimensions {
-  static const _encoder = JsonEncoder.withIndent('  ');
-  static const _decoder = JsonDecoder();
-
   @JsonKey(
     name: 'dims',
     required: true,
@@ -29,8 +24,8 @@ class TenorMediaObjectDimensions {
     if (_dimensions.length != 2) {
       throw ArgumentError.value(
         _dimensions,
-        'dimensions',
-        'Dimensions must have exactly two values: width and height',
+        '_dimensions',
+        'It must be a list with a length of 2',
       );
     }
 
@@ -44,9 +39,9 @@ class TenorMediaObjectDimensions {
 
   Map<String, dynamic> toJson() => _$TenorMediaObjectDimensionsToJson(this);
 
-  factory TenorMediaObjectDimensions.fromString(String message) =>
-      TenorMediaObjectDimensions.fromJson(_decoder.convert(message));
-
+  // coverage:ignore-start
   @override
-  String toString() => _encoder.convert(toJson());
+  String toString() =>
+      'TenorMediaObjectDimensions(width: $width, height: $height, aspectRatio: $aspectRatio)';
+  // coverage:ignore-end
 }
