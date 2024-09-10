@@ -94,6 +94,8 @@ class Tenor {
     bool sticker = false,
     bool? random,
   }) async {
+    // search can't be empty
+    if (search.trim().isEmpty) return null;
     // setup parameters
     var parameters = ''.withQueryParams({
       'key': apiKey,
@@ -129,6 +131,8 @@ class Tenor {
     String search, {
     int limit = 20,
   }) async {
+    // search can't be empty
+    if (search.trim().isEmpty) return [];
     // setup path
     var path = TenorEndpoint.search_suggestions.name.withQueryParams({
       'key': apiKey,
@@ -191,6 +195,8 @@ class Tenor {
     String search, {
     int limit = 20,
   }) async {
+    // search can't be empty
+    if (search.trim().isEmpty) return [];
     // setup path
     var path = TenorEndpoint.autocomplete.name.withQueryParams({
       'key': apiKey,
