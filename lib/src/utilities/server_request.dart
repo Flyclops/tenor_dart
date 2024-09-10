@@ -14,8 +14,8 @@ Future serverRequest(String url) async {
   final Map<Object, dynamic> json = jsonDecode(response.body);
 
   // if no error, return the json for consumption
-  if (json['error'] == null && response.statusCode == 200 ||
-      response.statusCode == 202) {
+  if (json['error'] == null &&
+      (response.statusCode == 200 || response.statusCode == 202)) {
     return json;
   }
 
