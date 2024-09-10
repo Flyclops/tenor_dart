@@ -21,7 +21,6 @@ void main() {
         'dims': [150, 300],
       };
       final dimensions = TenorMediaObjectDimensions.fromJson(json);
-      print(dimensions.toString());
       expect(dimensions.width, 150);
       expect(dimensions.height, 300);
       expect(dimensions.aspectRatio, 150 / 300);
