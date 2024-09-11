@@ -26,10 +26,10 @@ Future serverRequest(String url, Duration timeout) async {
     // if no error, return the json for consumption
     return json;
   } on TimeoutException {
-    throw TenorNetworkException;
+    throw TenorNetworkException();
   } on ClientException catch (e) {
     if (e.runtimeType.toString() == '_ClientSocketException') {
-      throw TenorNetworkException;
+      throw TenorNetworkException();
     }
   } catch (e) {
     // let the consumer handle it
