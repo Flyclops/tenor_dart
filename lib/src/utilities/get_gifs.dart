@@ -5,6 +5,7 @@ import 'package:tenor_dart/src/utilities/utilities.dart';
 /// Shared functionality between Search and Featured endpoints.
 Future<TenorResponse?> getGifs(
   TenorEndpoint endPoint,
+  Duration timeout,
   String parameters, {
   int limit = 1,
   TenorContentFilter? contentFilter,
@@ -37,7 +38,7 @@ Future<TenorResponse?> getGifs(
     path += '&pos=$pos';
   }
 
-  var data = await serverRequest(path);
+  var data = await serverRequest(path, timeout);
   TenorResponse? res;
   if (data != null && data.length > 0) {
     res = TenorResponse.fromJson(

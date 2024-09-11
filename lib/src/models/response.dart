@@ -16,32 +16,36 @@ class TenorResponse {
   @JsonKey(name: 'results')
   final List<TenorResult> results;
 
-  @JsonKey(name: 'next')
-  final String? next;
+  @JsonKey(name: 'aspectRatioRange')
+  final TenorAspectRatioRange aspectRatioRange;
 
   @JsonKey(name: 'contentFilter')
   final TenorContentFilter contentFilter;
 
-  @JsonKey(name: 'parameters')
-  final String? parameters;
+  @JsonKey(name: 'endpoint')
+  final TenorEndpoint? endpoint;
 
   @JsonKey(name: 'mediaFilter')
   final List<String>? mediaFilter;
 
-  @JsonKey(name: 'aspectRatioRange')
-  final TenorAspectRatioRange aspectRatioRange;
+  @JsonKey(name: 'next')
+  final String? next;
 
-  @JsonKey(name: 'endpoint')
-  final TenorEndpoint? endpoint;
+  @JsonKey(name: 'parameters')
+  final String? parameters;
+
+  @JsonKey(name: 'timeout')
+  final Duration timeout;
 
   TenorResponse({
     required this.results,
-    this.endpoint,
-    this.parameters,
-    this.next,
-    this.contentFilter = TenorContentFilter.off,
-    this.mediaFilter = const [TenorMediaFormat.tinygif],
     this.aspectRatioRange = TenorAspectRatioRange.all,
+    this.contentFilter = TenorContentFilter.off,
+    this.endpoint,
+    this.mediaFilter = const [TenorMediaFormat.tinygif],
+    this.next,
+    this.parameters,
+    this.timeout = const Duration(seconds: 5),
   });
 
   factory TenorResponse.fromJson(Map<String, dynamic> json) =>
@@ -58,6 +62,7 @@ class TenorResponse {
   Future<TenorResponse?> fetchNext({int limit = 1}) {
     return getGifs(
       endpoint!,
+      timeout,
       parameters!,
       limit: limit,
       contentFilter: contentFilter,

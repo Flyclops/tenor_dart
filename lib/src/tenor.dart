@@ -32,12 +32,18 @@ class Tenor {
   /// You can use the country code that you provide in locale to differentiate between dialects of the given language.
   final String locale;
 
+  /// The maximum time to wait for a network request to complete.
+  ///
+  /// Network exceptions are handled by the library and will return `null` if the request fails.
+  final Duration networkTimeout;
+
   const Tenor({
     required this.apiKey,
     this.clientKey,
     this.contentFilter = TenorContentFilter.off,
     this.country = 'US',
     this.locale = 'en_US',
+    this.networkTimeout = const Duration(seconds: 5),
   });
 
   /// Get a JSON object that contains a list of the current global featured GIFs. Tenor updates the featured stream regularly throughout the day.
@@ -64,6 +70,7 @@ class Tenor {
     });
     return await getGifs(
       TenorEndpoint.featured,
+      networkTimeout,
       parameters,
       contentFilter: contentFilter,
       limit: limit,
@@ -107,6 +114,7 @@ class Tenor {
     });
     return await getGifs(
       TenorEndpoint.search,
+      networkTimeout,
       parameters,
       limit: limit,
       contentFilter: contentFilter,
@@ -143,7 +151,7 @@ class Tenor {
       'limit': limit.clamp(1, 50),
     });
     // send request
-    var response = await serverRequest(path);
+    var response = await serverRequest(path, networkTimeout);
     // return empty
     if (response == null || response.isEmpty || response['results'] == null) {
       return <String>[];
@@ -172,7 +180,7 @@ class Tenor {
       'limit': limit.clamp(1, 50),
     });
     // send request
-    var response = await serverRequest(path);
+    var response = await serverRequest(path, networkTimeout);
     // return empty
     if (response == null || response.isEmpty || response['results'] == null) {
       return <String>[];
@@ -207,7 +215,7 @@ class Tenor {
       'limit': limit.clamp(1, 50),
     });
     // send request
-    var response = await serverRequest(path);
+    var response = await serverRequest(path, networkTimeout);
     // return empty
     if (response == null || response.isEmpty || response['results'] == null) {
       return <String>[];
@@ -239,7 +247,7 @@ class Tenor {
       'contentfilter': contentFilter.name,
     });
     // ask for data
-    var data = await serverRequest(path);
+    var data = await serverRequest(path, networkTimeout);
     // form list of categories
     var list = <TenorCategory>[];
     if (data != null && data['tags'] != null) {
@@ -274,7 +282,7 @@ class Tenor {
       'q': search,
     });
 
-    var result = await serverRequest(path);
+    var result = await serverRequest(path, networkTimeout);
     if (result != null &&
         result.isNotEmpty &&
         result[0]['status']?.toString().toLowerCase() == 'ok') {

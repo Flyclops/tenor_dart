@@ -1,0 +1,1 @@
+class TenorNetworkException implements Exception {}
