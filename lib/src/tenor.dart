@@ -285,7 +285,7 @@ class Tenor {
     var result = await serverRequest(path, networkTimeout);
     if (result != null &&
         result.isNotEmpty &&
-        result[0]['status']?.toString().toLowerCase() == 'ok') {
+        result['status']?.toString().toLowerCase() == 'ok') {
       return true;
     }
     return false;
