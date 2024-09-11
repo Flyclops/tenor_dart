@@ -275,7 +275,8 @@ class Tenor {
     });
 
     var result = await serverRequest(path);
-    if (result.isNotEmpty &&
+    if (result != null &&
+        result.isNotEmpty &&
         result[0]['status']?.toString().toLowerCase() == 'ok') {
       return true;
     }
