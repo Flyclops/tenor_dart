@@ -3,6 +3,7 @@ import 'package:tenor_dart/tenor_dart.dart';
 import 'package:flutter_config/flutter_config.dart';
 
 void main() async {
+  // only used to load api key from .env file, not required
   WidgetsFlutterBinding.ensureInitialized();
   await FlutterConfig.loadEnvVariables();
 
@@ -17,8 +18,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Tenor Dart Example',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+        primarySwatch: Colors.blue,
       ),
       home: const MyHomePage(title: 'Tenor Dart Example'),
     );
@@ -27,7 +27,6 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
-
   final String title;
 
   @override
@@ -46,25 +45,26 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     super.initState();
-
-    exampleCode();
+    getData();
   }
 
-  void exampleCode() async {
+  /// In this function we will fetch data from every endpoint available
+  /// in the Tenor API and store it in the state so we can display it.
+  void getData() async {
     // replace apiKey with an api key provided by Tenor > https://developers.google.com/tenor/guides/quickstart
     final String apiKey = FlutterConfig.get('TENOR_API_KEY');
-    var api = Tenor(apiKey: apiKey, clientKey: 'tenor-dart-example');
+    var tenorClient = Tenor(apiKey: apiKey, clientKey: 'tenor-dart-example');
 
     ///
-    /// Search GIFs for "marvel" keyword
+    /// Search GIFs for "domino" keyword
     ///
-    final searchResponse = await api.search('marvel', limit: 5);
+    final searchResponse = await tenorClient.search('domino', limit: 5);
     if (searchResponse?.results.isNotEmpty ?? false) {
       setState(() {
         searchResults = searchResponse!.results;
       });
     }
-    // Additional
+    // fetch 5 more
     final searchResponseNext = await searchResponse?.fetchNext(limit: 5);
     if (searchResponseNext?.results.isNotEmpty ?? false) {
       setState(() {
@@ -75,9 +75,10 @@ class _MyHomePageState extends State<MyHomePage> {
     }
 
     ///
-    /// Random GIF
+    /// Random GIF for "domino"
     ///
-    final randomResponse = await api.search('universe', limit: 1, random: true);
+    final randomResponse =
+        await tenorClient.search('domino', limit: 1, random: true);
     if (randomResponse?.results.isNotEmpty ?? false) {
       setState(() {
         randomGif = randomResponse!.results.first;
@@ -87,13 +88,13 @@ class _MyHomePageState extends State<MyHomePage> {
     ///
     /// Fetch Featured GIFs
     ///
-    final featuredResponse = await api.featured(limit: 5);
+    final featuredResponse = await tenorClient.featured(limit: 5);
     if (featuredResponse?.results.isNotEmpty ?? false) {
       setState(() {
         featuredResults = featuredResponse!.results;
       });
     }
-    // Additional
+    // fetch 5 more
     final featuredNext = await featuredResponse?.fetchNext(limit: 5);
     if (featuredNext?.results.isNotEmpty ?? false) {
       setState(() {
@@ -106,15 +107,15 @@ class _MyHomePageState extends State<MyHomePage> {
     ///
     /// Featured Categories
     ///
-    final categoryResponse = await api.categories();
+    final categoryResponse = await tenorClient.categories();
     setState(() {
       categoryResults = categoryResponse;
     });
 
     ///
-    /// Autocomplete
+    /// Autocomplete for "pro"
     ///
-    var autocompleteResponse = await api.autocomplete('pro', limit: 10);
+    var autocompleteResponse = await tenorClient.autocomplete('pro', limit: 10);
     setState(() {
       autocompleteResults = autocompleteResponse;
     });
@@ -122,16 +123,17 @@ class _MyHomePageState extends State<MyHomePage> {
     ///
     /// Trending Search Terms
     ///
-    var trendingSearchTermsResponse = await api.trendingSearchTerms(limit: 10);
+    var trendingSearchTermsResponse =
+        await tenorClient.trendingSearchTerms(limit: 10);
     setState(() {
       trendingSearchTermsResults = trendingSearchTermsResponse;
     });
 
     ///
-    /// Search Suggestions
+    /// Search Suggestions for "laugh"
     ///
     var searchSuggestionsResponse =
-        await api.searchSuggestions('laugh', limit: 10);
+        await tenorClient.searchSuggestions('laugh', limit: 10);
     setState(() {
       searchSuggestionsResults = searchSuggestionsResponse;
     });
@@ -151,8 +153,9 @@ class _MyHomePageState extends State<MyHomePage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 const SizedBox(height: 16),
+                // Display search results
                 const Text(
-                  'Search GIFs for "marvel"',
+                  'Search GIFs for "domino"',
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -168,14 +171,13 @@ class _MyHomePageState extends State<MyHomePage> {
                       return Expanded(
                         child: Image.network(
                           tinygif.url.toString(),
-                          // height: tinygif.dims?[1].toDouble(),
-                          // width: tinygif.dims?[0].toDouble(),
                         ),
                       );
                     },
                   ).toList(),
                 ),
                 const SizedBox(height: 16),
+                // Display featured results
                 const Text(
                   'Featured GIFs',
                   style: TextStyle(
@@ -193,16 +195,15 @@ class _MyHomePageState extends State<MyHomePage> {
                       return Expanded(
                         child: Image.network(
                           tinygif.url.toString(),
-                          // height: tinygif.dims?[1].toDouble(),
-                          // width: tinygif.dims?[0].toDouble(),
                         ),
                       );
                     },
                   ).toList(),
                 ),
                 const SizedBox(height: 16),
+                // Display random gif
                 const Text(
-                  'Random GIF for "universe"',
+                  'Random GIF for "domino"',
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -216,6 +217,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     width: 100,
                   ),
                 const SizedBox(height: 16),
+                // Display featured categories
                 const Text(
                   'Featured Categories',
                   style: TextStyle(
@@ -263,6 +265,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ).toList(),
                 ),
                 const SizedBox(height: 16),
+                // Display autocomplete results
                 const Text(
                   'Autocomplete for "pro"',
                   style: TextStyle(
@@ -275,6 +278,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Text(autocompleteResults.join(', ')),
                 ),
                 const SizedBox(height: 16),
+                // Display trending search terms
                 const Text(
                   'Trending Search Terms',
                   style: TextStyle(
@@ -287,6 +291,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Text(trendingSearchTermsResults.join(', ')),
                 ),
                 const SizedBox(height: 16),
+                // Display search suggestions
                 const Text(
                   'Search Suggestions for "laugh"',
                   style: TextStyle(
