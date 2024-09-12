@@ -1,5 +1,7 @@
 # Tenor Dart
 
+HELLO
+
 <p align="center">
   <a href="https://pub.dartlang.org/packages/tenor_dart"><img src="https://img.shields.io/pub/v/tenor_dart.svg" alt="Tenor Dart Pub Package" /></a>
   <a href="https://opensource.org/license/bsd-3-clause"><img src="https://img.shields.io/badge/License-BSD_3--Clause-blue.svg" alt="License BSD 3-Clause" /></a>
@@ -16,10 +18,12 @@ Currently supported endpoints include: [search](https://developers.google.com/te
 <p align="center"><strong><sup>Show some ❤️ and <a href="https://github.com/flyclops/tenor_dart">star the repo</a> to support this package.</sup></strong></p>
 
 ## What to know
+
 - In order to start using Tenor Dart you must obtain an API key by registering your project with [Tenor](https://developers.google.com/tenor/guides/quickstart).
 - Tenor requires proper [attribution](https://developers.google.com/tenor/guides/attribution) for projects using their API. This package does not handle the attribution process, so you will need to take care of it yourself.
 
 ## Obtaining Tenor API v2 key
+
 1. Log in to the [Google Cloud Console](https://console.cloud.google.com)
 2. Create a [new project](https://console.cloud.google.com/projectcreate)
 3. Go to the Google Cloud Marketplace and find the [Tenor API](https://console.cloud.google.com/marketplace/product/google/tenor.googleapis.com)
@@ -36,7 +40,8 @@ Currently supported endpoints include: [search](https://developers.google.com/te
 ```
 dart pub add tenor_dart
 ```
- <sup>Having trouble? Read the pub.dev <a href="https://pub.dev/packages/tenor_dart/install">installation page</a>.</sup>
+
+<sup>Having trouble? Read the pub.dev <a href="https://pub.dev/packages/tenor_dart/install">installation page</a>.</sup>
 
 ### Import
 
