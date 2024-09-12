@@ -7,7 +7,7 @@
   <a href="https://github.com/flyclops/tenor_dart/issues"><img src="https://img.shields.io/github/issues/flyclops/tenor_dart" alt="Tenor Dart Issues" /></a>
 </p>
 
-This package integrates [Tenor GIF search](httpsku://tenor.com/) into [Dart](https://dart.dev/) by utilizing the [http](https://pub.dev/packages/http) package to communicate directly with the Tenor API V2.
+This package integrates [Tenor GIF search](httpsku://tenor.com/) into [Dart](https://dart.dev/) by utilizing the [http](https://pub.dev/packages/http) package to communicate directly with the [Tenor API V2](https://developers.google.com/tenor/guides/quickstart).
 
 Currently supported endpoints include: [search](https://developers.google.com/tenor/guides/endpoints#search), [featured](https://developers.google.com/tenor/guides/endpoints#featured), [categories](https://developers.google.com/tenor/guides/endpoints#categories), [search suggestions](https://developers.google.com/tenor/guides/endpoints#search-suggestions), [autocomplete](https://developers.google.com/tenor/guides/endpoints#autocomplete), [trending search terms](https://developers.google.com/tenor/guides/endpoints#trending-search), [register share](https://developers.google.com/tenor/guides/endpoints#register-share) and [posts](https://developers.google.com/tenor/guides/endpoints#posts).
 
@@ -16,10 +16,12 @@ Currently supported endpoints include: [search](https://developers.google.com/te
 <p align="center"><strong><sup>Show some ❤️ and <a href="https://github.com/flyclops/tenor_dart">star the repo</a> to support this package.</sup></strong></p>
 
 ## What to know
+
 - In order to start using Tenor Dart you must obtain an API key by registering your project with [Tenor](https://developers.google.com/tenor/guides/quickstart).
 - Tenor requires proper [attribution](https://developers.google.com/tenor/guides/attribution) for projects using their API. This package does not handle the attribution process, so you will need to take care of it yourself.
 
 ## Obtaining Tenor API v2 key
+
 1. Log in to the [Google Cloud Console](https://console.cloud.google.com)
 2. Create a [new project](https://console.cloud.google.com/projectcreate)
 3. Go to the Google Cloud Marketplace and find the [Tenor API](https://console.cloud.google.com/marketplace/product/google/tenor.googleapis.com)
@@ -36,7 +38,8 @@ Currently supported endpoints include: [search](https://developers.google.com/te
 ```
 dart pub add tenor_dart
 ```
- <sup>Having trouble? Read the pub.dev <a href="https://pub.dev/packages/tenor_dart/install">installation page</a>.</sup>
+
+<sup>Having trouble? Read the pub.dev <a href="https://pub.dev/packages/tenor_dart/install">installation page</a>.</sup>
 
 ### Import
 

@@ -1,6 +1,7 @@
 import 'package:tenor_dart/src/constants/constants.dart';
 import 'package:tenor_dart/src/models/category.dart';
 import 'package:tenor_dart/src/models/response.dart';
+import 'package:tenor_dart/src/models/result.dart';
 import 'package:tenor_dart/src/utilities/utilities.dart';
 
 /// A client to interact with the [Tenor API v2](https://developers.google.com/tenor/guides/quickstart).
@@ -289,5 +290,36 @@ class Tenor {
       return true;
     }
     return false;
+  }
+
+  /// Get the GIFs, stickers, or a combination of the two for the specified IDs.
+  ///
+  /// Documentation: https://developers.google.com/tenor/guides/endpoints#posts
+  ///
+  ///```dart
+  /// var tenorClient = Tenor(apiKey: 'YOUR_KEY');
+  /// List<TenorResults> posts = await tenorClient.posts(ids: ['3526696', '25055384']);
+  ///```
+  Future<List<TenorResult>> posts({
+    required List<String> ids,
+    List<String> mediaFilter = const [TenorMediaFormat.tinygif],
+  }) async {
+    // setup path
+    var path = TenorEndpoint.posts.name.withQueryParams({
+      'key': apiKey,
+      'client_key': clientKey,
+      'ids': ids.join(','),
+      'media_filter': mediaFilter.join(','),
+    });
+    // ask for data
+    var data = await serverRequest(path, networkTimeout);
+    // form list of categories
+    var list = <TenorResult>[];
+    if (data != null && data['results'] != null) {
+      data['results'].forEach((post) {
+        list.add(TenorResult.fromJson(post));
+      });
+    }
+    return list;
   }
 }
