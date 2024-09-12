@@ -292,6 +292,14 @@ class Tenor {
     return false;
   }
 
+  /// Get the GIFs, stickers, or a combination of the two for the specified IDs.
+  ///
+  /// Documentation: https://developers.google.com/tenor/guides/endpoints#posts
+  ///
+  ///```dart
+  /// var tenorClient = Tenor(apiKey: 'YOUR_KEY');
+  /// List<TenorResults> posts = await tenorClient.posts(ids: ['3526696', '25055384']);
+  ///```
   Future<List<TenorResult>> posts({
     required List<String> ids,
     List<String> mediaFilter = const [TenorMediaFormat.tinygif],
