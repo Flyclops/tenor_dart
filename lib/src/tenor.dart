@@ -308,9 +308,6 @@ class Tenor {
     var path = TenorEndpoint.posts.name.withQueryParams({
       'key': apiKey,
       'client_key': clientKey,
-      'country': country,
-      'locale': locale,
-      'contentfilter': contentFilter.name,
       'ids': ids.join(','),
       'media_filter': mediaFilter.join(','),
     });
