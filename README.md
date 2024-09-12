@@ -13,11 +13,11 @@ Currently supported endpoints include: [search](https://developers.google.com/te
 
 <p align="center"><img src="https://github.com/flyclops/tenor_dart/raw/main/example/assets/demo.gif" width="200" alt="Tenor Dart Demo"/></p>
 
-<p align="center"><strong><sup>Show some ❤️ and star the repo to support the project.</sup></strong></p>
+<p align="center"><strong><sup>Show some ❤️ and <a href="https://github.com/flyclops/tenor_dart">star the repo</a> to support the package.</sup></strong></p>
 
 ## Getting Started
 
-In order to start using Tenor Client you must obtain an API key by registering your project with [Tenor](https://developers.google.com/tenor/guides/quickstart).
+In order to start using Tenor Dart you must obtain an API key by registering your project with [Tenor](https://developers.google.com/tenor/guides/quickstart).
 
 Add `tenor_dart` to your `pubspec.yaml`:
 
