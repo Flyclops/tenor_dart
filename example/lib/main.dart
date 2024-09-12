@@ -56,9 +56,9 @@ class _MyHomePageState extends State<MyHomePage> {
     var tenorClient = Tenor(apiKey: apiKey, clientKey: 'tenor-dart-example');
 
     ///
-    /// Search GIFs for "marvel" keyword
+    /// Search GIFs for "domino" keyword
     ///
-    final searchResponse = await tenorClient.search('marvel', limit: 5);
+    final searchResponse = await tenorClient.search('domino', limit: 5);
     if (searchResponse?.results.isNotEmpty ?? false) {
       setState(() {
         searchResults = searchResponse!.results;
@@ -75,10 +75,10 @@ class _MyHomePageState extends State<MyHomePage> {
     }
 
     ///
-    /// Random GIF
+    /// Random GIF for "domino"
     ///
     final randomResponse =
-        await tenorClient.search('universe', limit: 1, random: true);
+        await tenorClient.search('domino', limit: 1, random: true);
     if (randomResponse?.results.isNotEmpty ?? false) {
       setState(() {
         randomGif = randomResponse!.results.first;
@@ -155,7 +155,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 const SizedBox(height: 16),
                 // Display search results
                 const Text(
-                  'Search GIFs for "marvel"',
+                  'Search GIFs for "domino"',
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -203,7 +203,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 const SizedBox(height: 16),
                 // Display random gif
                 const Text(
-                  'Random GIF for "universe"',
+                  'Random GIF for "domino"',
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
