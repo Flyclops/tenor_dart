@@ -15,24 +15,28 @@ Currently supported endpoints include: [search](https://developers.google.com/te
 
 <p align="center"><strong><sup>Show some ❤️ and <a href="https://github.com/flyclops/tenor_dart">star the repo</a> to support the package.</sup></strong></p>
 
-## Getting Started
+## What to know
+- In order to start using Tenor Dart you must obtain an API key by registering your project with [Tenor](https://developers.google.com/tenor/guides/quickstart).
+- Tenor requires proper [attribution](https://developers.google.com/tenor/guides/attribution) for projects using their API. This package does not handle the attribution process, so you will need to take care of it yourself.
 
-In order to start using Tenor Dart you must obtain an API key by registering your project with [Tenor](https://developers.google.com/tenor/guides/quickstart).
+## Obtaining Tenor API v2 key
+1. Log in to the [Google Cloud Console](https://console.cloud.google.com)
+2. Create a [new project](https://console.cloud.google.com/projectcreate)
+3. Go to the Google Cloud Marketplace and find the [Tenor API](https://console.cloud.google.com/marketplace/product/google/tenor.googleapis.com)
+4. Click `Enable` to activate it
+5. In the navigation menu, go to the `APIs & Services` tab and select [Credentials](https://console.cloud.google.com/apis/credentials)
+6. Click `+ Create Credentials` and choose `API key`
+7. Copy the generated API key
+8. Provide this API key as a parameter to `TenorClient`
 
-Add `tenor_dart` to your `pubspec.yaml`:
+## Usage
 
-```
-dependencies:
-  tenor_dart: ^version_to_use
-```
-
-or run this command:
+### Installation
 
 ```
 dart pub add tenor_dart
 ```
-
-## Usage
+ <sup>Having trouble? Read the pub.dev <a href="https://pub.dev/packages/tenor_dart/install">installation page</a>.</sup>
 
 ### Import
 
