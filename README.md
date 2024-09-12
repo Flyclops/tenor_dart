@@ -34,7 +34,7 @@ dart pub add tenor_dart
 
 ## Usage
 
-##### Import
+### Import
 
 Import the package into the dart file where it will be used:
 
@@ -42,7 +42,7 @@ Import the package into the dart file where it will be used:
 import 'package:tenor_dart/tenor_dart.dart';
 ```
 
-##### Initialize
+### Initialize
 
 You must pass in a valid `apiKey` provided by [Tenor](https://developers.google.com/tenor/guides/quickstart). It's **strongly recommended** to also pass in a `clientKey` as this will help you distinguish which project is making the requests.
 
