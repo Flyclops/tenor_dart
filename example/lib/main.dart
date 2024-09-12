@@ -36,6 +36,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   List<TenorResult> searchResults = [];
   List<TenorResult> featuredResults = [];
+  List<TenorResult> postsResults = [];
   List<TenorCategory?> categoryResults = [];
   List<String?> autocompleteResults = [];
   List<String?> trendingSearchTermsResults = [];
@@ -103,6 +104,14 @@ class _MyHomePageState extends State<MyHomePage> {
         featuredResults = clonedResults;
       });
     }
+
+    ///
+    /// Posts - Fetch GIFs by ID
+    ///
+    var postsResponse = await tenorClient.posts(ids: ['3526696', '25055384']);
+    setState(() {
+      postsResults = postsResponse;
+    });
 
     ///
     /// Featured Categories
@@ -193,6 +202,32 @@ class _MyHomePageState extends State<MyHomePage> {
                         return const SizedBox();
                       }
                       return Expanded(
+                        child: Image.network(
+                          tinygif.url.toString(),
+                        ),
+                      );
+                    },
+                  ).toList(),
+                ),
+                const SizedBox(height: 16),
+                // Display posts results
+                const Text(
+                  'Posts (3526696 & 25055384)',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: postsResults.map(
+                    (gif) {
+                      final tinygif = gif.media.tinygif;
+                      if (tinygif == null) {
+                        return const SizedBox();
+                      }
+                      return SizedBox(
+                        height: 75,
                         child: Image.network(
                           tinygif.url.toString(),
                         ),
