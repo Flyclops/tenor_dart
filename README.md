@@ -72,7 +72,7 @@ print(gifs?.first.media.tinygif?.url);
 
 ## Looking for a UI?
 
-If you're seeking a ready-made UI solution, check out [Tenor Flutter](https://pub.dartlang.org/packages/tenor_flutter), which is designed based on the [Tenor SDK](https://developers.google.com/tenor/guides/quickstart#launch-search) [guidelines](https://developers.google.com/tenor/guides/attribution). 
+If you're seeking a ready-made UI solution, check out [Tenor Flutter](https://github.com/Flyclops/tenor_flutter), which is designed based on the [Tenor SDK](https://developers.google.com/tenor/guides/quickstart#launch-search) [guidelines](https://developers.google.com/tenor/guides/attribution). 
 
 You can see a live example of it in our mobile game [Domino!](https://flyclops.com/games/domino.html) <sup>It's in chat.</sup>
 
