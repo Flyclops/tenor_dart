@@ -7,9 +7,9 @@ name: Dart
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
   build:
@@ -35,16 +35,9 @@ jobs:
       - name: Analyze project source
         run: dart analyze
 
-      # Your project will need to have tests in test/ and a dependency on
-      # package:test for this step to succeed. Note that Flutter projects will
-      # want to change this to 'flutter test'.
       - name: Run tests
-        run: dart pub run test --coverage="coverage"
-      - name: Install coverage tools
-        run: dart pub global activate coverage
-      - name: format coverage
-        run: $HOME/.pub-cache/bin/format_coverage --lcov --in=coverage --out=coverage.lcov --packages=.packages --report-on=lib
-      - uses: codecov/codecov-action@v2
-        with:
-          files: coverage.lcov
-          verbose: true # optional (default = false)
+        run: dart test --coverage=./coverage
+      - name: Convert coverage to lcov
+        run: dart run coverage:format_coverage -i ./coverage -o ./coverage/lcov.info --lcov --report-on lib/
+      - name: Send coverage to Coveralls
+        uses: coverallsapp/github-action@v2
