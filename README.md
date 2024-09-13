@@ -59,6 +59,8 @@ var tenorClient = Tenor(apiKey: 'YOUR_API_KEY', clientKey: 'YOUR_PROJECT_NAME');
 
 ## Example
 
+For an example on each endpoint feel free to check out [example/lib/main.dart](https://github.com/Flyclops/tenor_dart/blob/main/example/lib/main.dart).
+
 Here is how you can get 20 of the latest [featured](https://developers.google.com/tenor/guides/endpoints#featured) GIFs and print the first one.
 
 ```
@@ -70,10 +72,25 @@ print(gifs?.first.media.tinygif?.url);
 
 ## Looking for a UI?
 
-If you're seeking a ready-made UI solution, check out [Tenor Flutter](https://pub.dartlang.org/packages/tenor_flutter), which is designed based on the [Tenor SDK](https://developers.google.com/tenor/guides/quickstart#launch-search) [guidelines](https://developers.google.com/tenor/guides/attribution).
+If you're seeking a ready-made UI solution, check out [Tenor Flutter](https://pub.dartlang.org/packages/tenor_flutter), which is designed based on the [Tenor SDK](https://developers.google.com/tenor/guides/quickstart#launch-search) [guidelines](https://developers.google.com/tenor/guides/attribution). 
+
+You can see a live example of it in our mobile game [Domino!](https://flyclops.com/games/domino.html) <sup>It's in chat.</sup>
+
+## Sponsors
+
+<table>
+  <tr>
+    <td><p align="center"><a href="https://flyclops.com/"><img src="https://github.com/flyclops/tenor_dart/raw/main/example/assets/flyclops_logo_github" alt="Flyclops"/></a></p></td>
+    <td><p align="center"><a href="https://flyclops.com/games/domino.html"><img src="https://github.com/flyclops/tenor_dart/raw/main/example/assets/domino_logo_github" alt="Domino!"/></a></p></td>
+  </tr>
+  <tr>
+    <td><p align="center"><a href="https://flyclops.com/">Flyclops</a> is a independent mobile games studio specializing in casual multi-player games, both asynchronous turn-based, and real-time. Flyclops’s games have been played by millions across&nbsp;the&nbsp;globe.</p></td>
+    <td><p align="center"><a href="https://flyclops.com/games/domino.html">Domino!</a> is super addictive, fast-paced, multiplayer dominoes done right for <a href="http://j.mp/domino_FREE">iOS</a> and <a href="http://flycl.ps/domino_android">Android</a>. This easy-to-learn but impossible-to-master strategy game is beautifully designed and endlessly&nbsp;entertaining!</p></td>
+  </tr>
+</table>
 
 ## What's next?
 
 - Documentation
-- Tests
+- Tests *([Contributions](https://github.com/Flyclops/tenor_dart/blob/main/CONTRIBUTING.md) welcome)* ^_^
 - Further improvements
