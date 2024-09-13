@@ -11,7 +11,7 @@ Before creating a pull request please:
 1. Fork the repository and create your branch from `main`
 2. Install all dependencies (`dart packages get` or `pub get`)
 3. Squash your commits and ensure you have a meaningful commit message.
-4. If you’ve fixed a bug or added code that should be tested, add tests! Pull Requests without 100% test coverage will not be approved.
+4. If you’ve fixed a bug or added code that should be tested, add tests!
 5. Ensure the test suite passes.
 6. If you've changed the public API, make sure to update/add documentation.
 7. Format your code (`dart format .`)
