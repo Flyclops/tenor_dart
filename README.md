@@ -80,8 +80,8 @@ You can see a live example of it in our mobile game [Domino!](https://flyclops.c
 
 <table>
   <tr>
-    <td><p align="center"><a href="https://flyclops.com/"><img src="https://github.com/flyclops/tenor_dart/raw/main/example/assets/flyclops_logo_github" alt="Flyclops"/></a></p></td>
-    <td><p align="center"><a href="https://flyclops.com/games/domino.html"><img src="https://github.com/flyclops/tenor_dart/raw/main/example/assets/domino_logo_github" alt="Domino!"/></a></p></td>
+    <td><p align="center"><a href="https://flyclops.com/"><img src="https://raw.githubusercontent.com/Flyclops/tenor_dart/main/example/assets/flyclops_logo_github.png" alt="Flyclops"/></a></p></td>
+    <td><p align="center"><a href="https://flyclops.com/games/domino.html"><img src="https://raw.githubusercontent.com/Flyclops/tenor_dart/main/example/assets/domino_logo_github.png" alt="Domino!"/></a></p></td>
   </tr>
   <tr>
     <td><p align="center"><a href="https://flyclops.com/">Flyclops</a> is a independent mobile games studio specializing in casual multi-player games, both asynchronous turn-based, and real-time. Flyclops’s games have been played by millions across&nbsp;the&nbsp;globe.</p></td>
