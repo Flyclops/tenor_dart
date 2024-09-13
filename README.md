@@ -7,7 +7,7 @@
   <a href="https://github.com/flyclops/tenor_dart/issues"><img src="https://img.shields.io/github/issues/flyclops/tenor_dart" alt="Tenor Dart Issues" /></a>
 </p>
 
-This package integrates [Tenor GIF search](httpsku://tenor.com/) into [Dart](https://dart.dev/) by utilizing the [http](https://pub.dev/packages/http) package to communicate directly with the [Tenor API V2](https://developers.google.com/tenor/guides/quickstart).
+This package integrates [Tenor GIF search](https://tenor.com/) into [Dart](https://dart.dev/) by utilizing the [http](https://pub.dev/packages/http) package to communicate directly with the [Tenor API V2](https://developers.google.com/tenor/guides/quickstart).
 
 Currently supported endpoints include: [search](https://developers.google.com/tenor/guides/endpoints#search), [featured](https://developers.google.com/tenor/guides/endpoints#featured), [categories](https://developers.google.com/tenor/guides/endpoints#categories), [search suggestions](https://developers.google.com/tenor/guides/endpoints#search-suggestions), [autocomplete](https://developers.google.com/tenor/guides/endpoints#autocomplete), [trending search terms](https://developers.google.com/tenor/guides/endpoints#trending-search), [register share](https://developers.google.com/tenor/guides/endpoints#register-share) and [posts](https://developers.google.com/tenor/guides/endpoints#posts).
 
@@ -72,7 +72,7 @@ print(gifs?.first.media.tinygif?.url);
 
 ## Looking for a UI?
 
-If you're seeking a ready-made UI solution, check out [Tenor Flutter](https://github.com/Flyclops/tenor_flutter), which is designed based on the [Tenor SDK](https://developers.google.com/tenor/guides/quickstart#launch-search) [guidelines](https://developers.google.com/tenor/guides/attribution). 
+If you're seeking a ready-made UI solution, check out [Tenor Flutter](https://github.com/Flyclops/tenor_flutter), which is designed based on the [Tenor SDK](https://developers.google.com/tenor/guides/quickstart#launch-search) [guidelines](https://developers.google.com/tenor/guides/attribution).
 
 You can see a live example of it in our mobile game [Domino!](https://flyclops.com/games/domino.html) <sup>It's in chat.</sup>
 
@@ -92,5 +92,5 @@ You can see a live example of it in our mobile game [Domino!](https://flyclops.c
 ## What's next?
 
 - Documentation
-- Tests *([Contributions](https://github.com/Flyclops/tenor_dart/blob/main/CONTRIBUTING.md) welcome)* ^_^
+- Tests _([Contributions](https://github.com/Flyclops/tenor_dart/blob/main/CONTRIBUTING.md) welcome)_ ^\_^
 - Further improvements
