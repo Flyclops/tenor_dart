@@ -1,5 +1,4 @@
-flutter test --coverage
-brew install lcov
-lcov --remove coverage/lcov.info 'test/*' 'lib/*/*.g.dart' -o coverage/lcov.info
+dart test --coverage=./coverage
+dart run coverage:format_coverage -i ./coverage -o ./coverage/lcov.info --lcov --check-ignore --report-on lib/
 genhtml coverage/lcov.info --output=coverage
 open coverage/index.html
