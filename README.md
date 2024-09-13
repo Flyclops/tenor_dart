@@ -54,7 +54,7 @@ import 'package:tenor_dart/tenor_dart.dart';
 You must pass in a valid `apiKey` provided by [Tenor](https://developers.google.com/tenor/guides/quickstart). It's **strongly recommended** to also pass in a `clientKey` as this will help you distinguish which project is making the requests.
 
 ```
-var tenorClient = Tenor(apiKey: 'YOUR_API_KEY', clientKey: 'YOUR_PROJECT_NAME');
+final tenorClient = Tenor(apiKey: 'YOUR_API_KEY', clientKey: 'YOUR_PROJECT_NAME');
 ```
 
 ## Example
@@ -64,7 +64,7 @@ For an example on each endpoint feel free to check out [example/lib/main.dart](h
 Here is how you can get 20 of the latest [featured](https://developers.google.com/tenor/guides/endpoints#featured) GIFs and print the first one.
 
 ```
-var tenorClient = Tenor(apiKey: 'YOUR_API_KEY', clientKey: 'YOUR_PROJECT_NAME');
+final tenorClient = Tenor(apiKey: 'YOUR_API_KEY', clientKey: 'YOUR_PROJECT_NAME');
 final TenorResponse? response = await tenorClient.featured(limit: 20);
 final List<TenorResult>? gifs = response?.results;
 print(gifs?.first.media.tinygif?.url);
