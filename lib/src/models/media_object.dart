@@ -9,14 +9,13 @@ part 'media_object.g.dart';
 @JsonSerializable(explicitToJson: true)
 class TenorMediaObject {
   static const _encoder = JsonEncoder.withIndent('  ');
-  static const _decoder = JsonDecoder();
 
   /// A URL to the media source
   @JsonKey(name: 'url')
   final String url;
 
   /// Width _(first)_ and height _(last)_ of the media in pixels
-  @JsonKey(name: 'dims', fromJson: dimensionsFromJson)
+  @JsonKey(name: 'dims', fromJson: dimensionsfromJson, toJson: dimensionsToJson)
   final TenorMediaObjectDimensions dimensions;
 
   /// Represents the time in seconds for one loop of the content. If the content is static, the duration is set to 0.
@@ -39,15 +38,18 @@ class TenorMediaObject {
 
   Map<String, dynamic> toJson() => _$TenorMediaObjectToJson(this);
 
-  factory TenorMediaObject.fromString(String message) =>
-      TenorMediaObject.fromJson(_decoder.convert(message));
-
+  // coverage:ignore-start
   @override
   String toString() => _encoder.convert(toJson());
+  // coverage:ignore-end
 
-  static dimensionsFromJson(List<dynamic> json) {
-    return TenorMediaObjectDimensions.fromJson({
-      'dims': json,
-    });
+  static TenorMediaObjectDimensions dimensionsfromJson(
+    List<int> dimensions,
+  ) {
+    return TenorMediaObjectDimensions.fromJson({'dims': dimensions});
+  }
+
+  static List<double> dimensionsToJson(TenorMediaObjectDimensions dimensions) {
+    return [dimensions.width, dimensions.height];
   }
 }

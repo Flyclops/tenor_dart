@@ -5,7 +5,6 @@ void main() {
   group('TenorMediaObjectDimensions >', () {
     test('Height, width and aspect ratio should be correct', () {
       final dimensions = TenorMediaObjectDimensions([220, 400]);
-
       expect(dimensions.width, 220);
       expect(dimensions.height, 400);
       expect(dimensions.aspectRatio, 220 / 400);
@@ -25,13 +24,13 @@ void main() {
       expect(dimensions.height, 300);
       expect(dimensions.aspectRatio, 150 / 300);
     });
-  });
-  test('.toJson()', () {
-    final dimensions = TenorMediaObjectDimensions([300, 600]);
-    final json = dimensions.toJson();
+    test('.toJson()', () {
+      final dimensions = TenorMediaObjectDimensions([300, 600]);
+      final json = dimensions.toJson();
 
-    expect(json, {
-      'dims': [300, 600],
+      expect(json, {
+        'dims': [300, 600],
+      });
     });
   });
 }

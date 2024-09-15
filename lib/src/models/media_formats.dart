@@ -12,81 +12,80 @@ part 'media_formats.g.dart';
 @JsonSerializable(explicitToJson: true)
 class TenorMediaFormats {
   static const _encoder = JsonEncoder.withIndent('  ');
-  static const _decoder = JsonDecoder();
-
-  @JsonKey(name: TenorMediaFormat.preview)
-  final TenorMediaObject? preview;
 
   @JsonKey(name: TenorMediaFormat.gif)
   final TenorMediaObject? gif;
 
-  @JsonKey(name: TenorMediaFormat.mediumgif)
-  final TenorMediaObject? mediumgif;
+  @JsonKey(name: TenorMediaFormat.gifTransparent)
+  final TenorMediaObject? gifTransparent;
 
-  @JsonKey(name: TenorMediaFormat.tinygif)
-  final TenorMediaObject? tinygif;
+  @JsonKey(name: TenorMediaFormat.loopedMp4)
+  final TenorMediaObject? loopedMp4;
 
-  @JsonKey(name: TenorMediaFormat.nanogif)
-  final TenorMediaObject? nanogif;
+  @JsonKey(name: TenorMediaFormat.mediumGif)
+  final TenorMediaObject? mediumGif;
 
   @JsonKey(name: TenorMediaFormat.mp4)
   final TenorMediaObject? mp4;
 
-  @JsonKey(name: TenorMediaFormat.loopedmp4)
-  final TenorMediaObject? loopedmp4;
+  @JsonKey(name: TenorMediaFormat.nanoGif)
+  final TenorMediaObject? nanoGif;
 
-  @JsonKey(name: TenorMediaFormat.tinymp4)
-  final TenorMediaObject? tinymp4;
+  @JsonKey(name: TenorMediaFormat.nanoGifTransparent)
+  final TenorMediaObject? nanoGifTransparent;
 
-  @JsonKey(name: TenorMediaFormat.nanomp4)
-  final TenorMediaObject? nanomp4;
+  @JsonKey(name: TenorMediaFormat.nanoMp4)
+  final TenorMediaObject? nanoMp4;
+
+  @JsonKey(name: TenorMediaFormat.nanoWebm)
+  final TenorMediaObject? nanoWebm;
+
+  @JsonKey(name: TenorMediaFormat.nanoWebpTransparent)
+  final TenorMediaObject? nanoWebpTransparent;
+
+  @JsonKey(name: TenorMediaFormat.preview)
+  final TenorMediaObject? preview;
+
+  @JsonKey(name: TenorMediaFormat.tinyGif)
+  final TenorMediaObject? tinyGif;
+
+  @JsonKey(name: TenorMediaFormat.tinyGifTransparent)
+  final TenorMediaObject? tinyGifTransparent;
+
+  @JsonKey(name: TenorMediaFormat.tinyMp4)
+  final TenorMediaObject? tinyMp4;
+
+  @JsonKey(name: TenorMediaFormat.tinyWebm)
+  final TenorMediaObject? tinyWebm;
+
+  @JsonKey(name: TenorMediaFormat.tinyWebpTransparent)
+  final TenorMediaObject? tinyWebpTransparent;
 
   @JsonKey(name: TenorMediaFormat.webm)
   final TenorMediaObject? webm;
 
-  @JsonKey(name: TenorMediaFormat.tinywebm)
-  final TenorMediaObject? tinywebm;
-
-  @JsonKey(name: TenorMediaFormat.nanowebm)
-  final TenorMediaObject? nanowebm;
-
   @JsonKey(name: TenorMediaFormat.webpTransparent)
   final TenorMediaObject? webpTransparent;
 
-  @JsonKey(name: TenorMediaFormat.tinywebpTransparent)
-  final TenorMediaObject? tinywebpTransparent;
-
-  @JsonKey(name: TenorMediaFormat.nanowebpTransparent)
-  final TenorMediaObject? nanowebpTransparent;
-
-  @JsonKey(name: TenorMediaFormat.gifTransparent)
-  final TenorMediaObject? gifTransparent;
-
-  @JsonKey(name: TenorMediaFormat.tinygifTransparent)
-  final TenorMediaObject? tinygifTransparent;
-
-  @JsonKey(name: TenorMediaFormat.nanogifTransparent)
-  final TenorMediaObject? nanogifTransparent;
-
   const TenorMediaFormats({
-    this.preview,
     this.gif,
-    this.mediumgif,
-    this.tinygif,
-    this.nanogif,
-    this.mp4,
-    this.loopedmp4,
-    this.tinymp4,
-    this.nanomp4,
-    this.webm,
-    this.tinywebm,
-    this.nanowebm,
-    this.webpTransparent,
-    this.tinywebpTransparent,
-    this.nanowebpTransparent,
     this.gifTransparent,
-    this.tinygifTransparent,
-    this.nanogifTransparent,
+    this.loopedMp4,
+    this.mediumGif,
+    this.mp4,
+    this.nanoGif,
+    this.nanoGifTransparent,
+    this.nanoMp4,
+    this.nanoWebm,
+    this.nanoWebpTransparent,
+    this.preview,
+    this.tinyGif,
+    this.tinyGifTransparent,
+    this.tinyMp4,
+    this.tinyWebm,
+    this.tinyWebpTransparent,
+    this.webm,
+    this.webpTransparent,
   });
 
   factory TenorMediaFormats.fromJson(Map<String, dynamic> json) =>
@@ -94,9 +93,8 @@ class TenorMediaFormats {
 
   Map<String, dynamic> toJson() => _$TenorMediaFormatsToJson(this);
 
-  factory TenorMediaFormats.fromString(String message) =>
-      TenorMediaFormats.fromJson(_decoder.convert(message));
-
+  // coverage:ignore-start
   @override
   String toString() => _encoder.convert(toJson());
+  // coverage:ignore-end
 }

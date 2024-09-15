@@ -58,7 +58,7 @@ class Tenor {
   Future<TenorResponse?> featured({
     int limit = 20,
     TenorAspectRatioRange aspectRatioRange = TenorAspectRatioRange.all,
-    List<String> mediaFilter = const [TenorMediaFormat.tinygif],
+    List<String> mediaFilter = const [TenorMediaFormat.tinyGif],
     bool sticker = false,
     String? pos,
   }) async {
@@ -97,7 +97,7 @@ class Tenor {
     String search, {
     int limit = 20,
     TenorAspectRatioRange aspectRatioRange = TenorAspectRatioRange.all,
-    List<String> mediaFilter = const [TenorMediaFormat.tinygif],
+    List<String> mediaFilter = const [TenorMediaFormat.tinyGif],
     String? pos,
     bool sticker = false,
     bool? random,
@@ -302,7 +302,7 @@ class Tenor {
   ///```
   Future<List<TenorResult>> posts({
     required List<String> ids,
-    List<String> mediaFilter = const [TenorMediaFormat.tinygif],
+    List<String> mediaFilter = const [TenorMediaFormat.tinyGif],
   }) async {
     // setup path
     var path = TenorEndpoint.posts.name.withQueryParams({

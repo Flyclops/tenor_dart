@@ -8,10 +8,9 @@ part 'category.g.dart';
 @JsonSerializable()
 class TenorCategory {
   static const _encoder = JsonEncoder.withIndent('  ');
-  static const _decoder = JsonDecoder();
 
   /// The search term that corresponds to the category. The search term is translated to match the locale of the corresponding request.
-  @JsonKey(name: 'searchterm', disallowNullValue: true)
+  @JsonKey(name: 'search_term', disallowNullValue: true)
   final String searchTerm;
 
   /// The search URL to request if the user selects the category.
@@ -38,9 +37,8 @@ class TenorCategory {
 
   Map<String, dynamic> toJson() => _$TenorCategoryToJson(this);
 
-  factory TenorCategory.fromString(String message) =>
-      TenorCategory.fromJson(_decoder.convert(message));
-
+  // coverage:ignore-start
   @override
   String toString() => _encoder.convert(toJson());
+  // coverage:ignore-end
 }

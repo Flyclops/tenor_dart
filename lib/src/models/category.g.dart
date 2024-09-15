@@ -12,10 +12,10 @@ part of 'category.dart';
 TenorCategory _$TenorCategoryFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
-    disallowNullValues: const ['searchterm', 'path', 'image', 'name'],
+    disallowNullValues: const ['search_term', 'path', 'image', 'name'],
   );
   return TenorCategory(
-    searchTerm: json['searchterm'] as String,
+    searchTerm: json['search_term'] as String,
     path: json['path'] as String,
     image: json['image'] as String,
     name: json['name'] as String,
@@ -24,7 +24,7 @@ TenorCategory _$TenorCategoryFromJson(Map<String, dynamic> json) {
 
 Map<String, dynamic> _$TenorCategoryToJson(TenorCategory instance) =>
     <String, dynamic>{
-      'searchterm': instance.searchTerm,
+      'search_term': instance.searchTerm,
       'path': instance.path,
       'image': instance.image,
       'name': instance.name,

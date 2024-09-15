@@ -24,7 +24,7 @@ TenorResponse _$TenorResponseFromJson(Map<String, dynamic> json) =>
       mediaFilter: (json['mediaFilter'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
-          const [TenorMediaFormat.tinygif],
+          const [TenorMediaFormat.tinyGif],
       next: json['next'] as String?,
       parameters: json['parameters'] as String?,
       timeout: json['timeout'] == null

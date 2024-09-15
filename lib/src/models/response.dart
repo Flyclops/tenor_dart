@@ -42,7 +42,7 @@ class TenorResponse {
     this.aspectRatioRange = TenorAspectRatioRange.all,
     this.contentFilter = TenorContentFilter.off,
     this.endpoint,
-    this.mediaFilter = const [TenorMediaFormat.tinygif],
+    this.mediaFilter = const [TenorMediaFormat.tinyGif],
     this.next,
     this.parameters,
     this.timeout = const Duration(seconds: 5),
@@ -56,8 +56,10 @@ class TenorResponse {
   factory TenorResponse.fromString(String message) =>
       TenorResponse.fromJson(_decoder.convert(message));
 
+  // coverage:ignore-start
   @override
   String toString() => _encoder.convert(toJson());
+  // coverage:ignore-end
 
   Future<TenorResponse?> fetchNext({int limit = 1}) {
     return getGifs(
