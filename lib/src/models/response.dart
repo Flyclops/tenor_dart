@@ -11,21 +11,20 @@ part 'response.g.dart';
 @JsonSerializable(explicitToJson: true)
 class TenorResponse {
   static const _encoder = JsonEncoder.withIndent('  ');
-  static const _decoder = JsonDecoder();
 
   @JsonKey(name: 'results')
   final List<TenorResult> results;
 
-  @JsonKey(name: 'aspectRatioRange')
+  @JsonKey(name: 'aspect_ratio_range')
   final TenorAspectRatioRange aspectRatioRange;
 
-  @JsonKey(name: 'contentFilter')
+  @JsonKey(name: 'content_filter')
   final TenorContentFilter contentFilter;
 
   @JsonKey(name: 'endpoint')
   final TenorEndpoint? endpoint;
 
-  @JsonKey(name: 'mediaFilter')
+  @JsonKey(name: 'media_filter')
   final List<String>? mediaFilter;
 
   @JsonKey(name: 'next')
@@ -53,14 +52,6 @@ class TenorResponse {
 
   Map<String, dynamic> toJson() => _$TenorResponseToJson(this);
 
-  factory TenorResponse.fromString(String message) =>
-      TenorResponse.fromJson(_decoder.convert(message));
-
-  // coverage:ignore-start
-  @override
-  String toString() => _encoder.convert(toJson());
-  // coverage:ignore-end
-
   Future<TenorResponse?> fetchNext({int limit = 1}) {
     return getGifs(
       endpoint!,
@@ -73,4 +64,9 @@ class TenorResponse {
       pos: next,
     );
   }
+
+  // coverage:ignore-start
+  @override
+  String toString() => _encoder.convert(toJson());
+  // coverage:ignore-end
 }

@@ -38,11 +38,6 @@ class TenorMediaObject {
 
   Map<String, dynamic> toJson() => _$TenorMediaObjectToJson(this);
 
-  // coverage:ignore-start
-  @override
-  String toString() => _encoder.convert(toJson());
-  // coverage:ignore-end
-
   static TenorMediaObjectDimensions dimensionsfromJson(
     List<int> dimensions,
   ) {
@@ -52,4 +47,9 @@ class TenorMediaObject {
   static List<double> dimensionsToJson(TenorMediaObjectDimensions dimensions) {
     return [dimensions.width, dimensions.height];
   }
+
+  // coverage:ignore-start
+  @override
+  String toString() => _encoder.convert(toJson());
+  // coverage:ignore-end
 }

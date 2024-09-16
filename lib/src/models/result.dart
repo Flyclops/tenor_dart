@@ -81,9 +81,6 @@ class TenorResult {
 
   Map<String, dynamic> toJson() => _$TenorResultToJson(this);
 
-  factory TenorResult.fromString(String message) =>
-      TenorResult.fromJson(_decoder.convert(message));
-
   // coverage:ignore-start
   @override
   String toString() => _encoder.convert(toJson());

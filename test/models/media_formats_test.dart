@@ -2,127 +2,127 @@ import 'package:tenor_dart/tenor_dart.dart';
 import 'package:test/test.dart';
 
 void main() {
-  final testPreview = {
-    'url': 'url/to/preview',
+  final testGif = {
+    'url': 'url/to/gif',
     'dims': [10, 20],
     'duration': 1,
     'size': 1,
   };
 
-  final testGif = {
-    'url': 'url/to/gif',
+  final testGifTransparent = {
+    'url': 'url/to/gifTransparent',
     'dims': [20, 30],
     'duration': 2,
     'size': 2,
   };
 
-  final testMediumGif = {
-    'url': 'url/to/mediumgif',
+  final testLoopedMp4 = {
+    'url': 'url/to/loopedmp4',
     'dims': [30, 40],
     'duration': 3,
     'size': 3,
   };
 
-  final testTinyGif = {
-    'url': 'url/to/tinygif',
+  final testMediumGif = {
+    'url': 'url/to/mediumgif',
     'dims': [40, 50],
     'duration': 4,
     'size': 4,
   };
 
-  final testNanoGif = {
-    'url': 'url/to/nanogif',
+  final testMp4 = {
+    'url': 'url/to/mp4',
     'dims': [50, 60],
     'duration': 5,
     'size': 5,
   };
 
-  final testMp4 = {
-    'url': 'url/to/mp4',
+  final testNanoGif = {
+    'url': 'url/to/nanogif',
     'dims': [60, 70],
     'duration': 6,
     'size': 6,
   };
 
-  final testLoopedMp4 = {
-    'url': 'url/to/loopedmp4',
+  final testNanoGifTransparent = {
+    'url': 'url/to/nanoGifTransparent',
     'dims': [70, 80],
     'duration': 7,
     'size': 7,
   };
 
-  final testTinyMp4 = {
-    'url': 'url/to/tinymp4',
+  final testNanoMp4 = {
+    'url': 'url/to/nanomp4',
     'dims': [80, 90],
     'duration': 8,
     'size': 8,
   };
 
-  final testNanoMp4 = {
-    'url': 'url/to/nanomp4',
+  final testNanoWebm = {
+    'url': 'url/to/nanoWebm',
     'dims': [90, 100],
     'duration': 9,
     'size': 9,
   };
 
-  final testWebm = {
-    'url': 'url/to/webm',
+  final testNanoWebpTransparent = {
+    'url': 'url/to/nanoWebpTransparent',
     'dims': [100, 110],
     'duration': 10,
     'size': 10,
   };
 
-  final testTinyWebm = {
-    'url': 'url/to/tinyWebm',
+  final testPreview = {
+    'url': 'url/to/preview',
     'dims': [110, 120],
     'duration': 11,
     'size': 11,
   };
 
-  final testNanoWebm = {
-    'url': 'url/to/nanoWebm',
+  final testTinyGif = {
+    'url': 'url/to/tinygif',
     'dims': [120, 130],
     'duration': 12,
     'size': 12,
   };
 
-  final testWebpTransparent = {
-    'url': 'url/to/testWebpTransparent',
+  final testTinyGifTransparent = {
+    'url': 'url/to/tinyGifTransparent',
     'dims': [130, 140],
     'duration': 13,
     'size': 13,
   };
 
-  final testTinyWebpTransparent = {
-    'url': 'url/to/tinyWebpTransparent',
+  final testTinyMp4 = {
+    'url': 'url/to/tinymp4',
     'dims': [140, 150],
     'duration': 14,
     'size': 14,
   };
 
-  final testNanoWebpTransparent = {
-    'url': 'url/to/nanoWebpTransparent',
+  final testTinyWebm = {
+    'url': 'url/to/tinyWebm',
     'dims': [150, 160],
     'duration': 15,
     'size': 15,
   };
 
-  final testGifTransparent = {
-    'url': 'url/to/gifTransparent',
+  final testTinyWebpTransparent = {
+    'url': 'url/to/tinyWebpTransparent',
     'dims': [160, 170],
     'duration': 16,
     'size': 16,
   };
 
-  final testTinyGifTransparent = {
-    'url': 'url/to/tinyGifTransparent',
+  final testWebm = {
+    'url': 'url/to/webm',
     'dims': [170, 180],
     'duration': 17,
     'size': 17,
   };
 
-  final testNanoGifTransparent = {
-    'url': 'url/to/nanoGifTransparent',
+  final testWebpTransparent = {
+    'url': 'url/to/testWebpTransparent',
     'dims': [180, 190],
     'duration': 18,
     'size': 18,
