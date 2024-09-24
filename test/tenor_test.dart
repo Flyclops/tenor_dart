@@ -198,7 +198,7 @@ void main() {
     });
     group('.trendingSearchTerms() >', () {
       test('should call request - success', () async {
-        final testSuggestions = ['domino is fun', 'domino is cool'];
+        final testTrendingTerms = ['domino is fun', 'domino is cool'];
         when(
           () => mockTenorHttpClient.request(
             any(),
@@ -206,7 +206,7 @@ void main() {
           ),
         ).thenAnswer((_) async {
           return {
-            'results': testSuggestions,
+            'results': testTrendingTerms,
           };
         });
 
@@ -219,7 +219,7 @@ void main() {
           ),
         ).called(1);
 
-        expect(response, testSuggestions);
+        expect(response, testTrendingTerms);
       });
       test('should call request - results null', () async {
         when(
@@ -329,6 +329,236 @@ void main() {
         });
 
         final response = await tenorClient.autocomplete('dom');
+
+        verify(
+          () => mockTenorHttpClient.request(
+            any(),
+            any(),
+          ),
+        ).called(1);
+
+        expect(response, []);
+      });
+    });
+    group('.categories() >', () {
+      test('should call request - success', () async {
+        when(
+          () => mockTenorHttpClient.request(
+            any(),
+            any(),
+          ),
+        ).thenAnswer((_) async {
+          return {
+            'tags': [
+              {
+                'image': 'domino.png',
+                'name': 'domino',
+                'path': 'domino',
+                'search_term': 'domino',
+              },
+            ],
+          };
+        });
+
+        final response = await tenorClient.categories();
+
+        verify(
+          () => mockTenorHttpClient.request(
+            any(),
+            any(),
+          ),
+        ).called(1);
+
+        expect(response.first.image, 'domino.png');
+        expect(response.first.name, 'domino');
+        expect(response.first.path, 'domino');
+        expect(response.first.searchTerm, 'domino');
+      });
+      test('should call request - results null', () async {
+        when(
+          () => mockTenorHttpClient.request(
+            any(),
+            any(),
+          ),
+        ).thenAnswer((_) async {
+          return {
+            'data': null,
+          };
+        });
+
+        final response = await tenorClient.categories();
+
+        verify(
+          () => mockTenorHttpClient.request(
+            any(),
+            any(),
+          ),
+        ).called(1);
+
+        expect(response, []);
+      });
+      test('should call request - results empty', () async {
+        when(
+          () => mockTenorHttpClient.request(
+            any(),
+            any(),
+          ),
+        ).thenAnswer((_) async {
+          return {};
+        });
+
+        final response = await tenorClient.categories();
+
+        verify(
+          () => mockTenorHttpClient.request(
+            any(),
+            any(),
+          ),
+        ).called(1);
+
+        expect(response, []);
+      });
+    });
+    group('.registerShare() >', () {
+      test('should call request - success', () async {
+        when(
+          () => mockTenorHttpClient.request(
+            any(),
+            any(),
+          ),
+        ).thenAnswer((_) async {
+          return {
+            'status': 'OK',
+          };
+        });
+
+        final response = await tenorClient.registerShare('1234');
+
+        verify(
+          () => mockTenorHttpClient.request(
+            any(),
+            any(),
+          ),
+        ).called(1);
+
+        expect(response, true);
+      });
+      test('should call request - results null', () async {
+        when(
+          () => mockTenorHttpClient.request(
+            any(),
+            any(),
+          ),
+        ).thenAnswer((_) async {
+          return {
+            'status': null,
+          };
+        });
+
+        final response = await tenorClient.registerShare('1234');
+
+        verify(
+          () => mockTenorHttpClient.request(
+            any(),
+            any(),
+          ),
+        ).called(1);
+
+        expect(response, false);
+      });
+      test('should call request - results empty', () async {
+        when(
+          () => mockTenorHttpClient.request(
+            any(),
+            any(),
+          ),
+        ).thenAnswer((_) async {
+          return {};
+        });
+
+        final response = await tenorClient.registerShare('1234');
+
+        verify(
+          () => mockTenorHttpClient.request(
+            any(),
+            any(),
+          ),
+        ).called(1);
+
+        expect(response, false);
+      });
+    });
+    group('.posts() >', () {
+      test('should call request - success', () async {
+        when(
+          () => mockTenorHttpClient.request(
+            any(),
+            any(),
+          ),
+        ).thenAnswer((_) async {
+          return {
+            'results': [
+              TenorResult(
+                created: DateTime.now().millisecondsSinceEpoch.toDouble(),
+                hasAudio: false,
+                id: '1234',
+                tags: ['gifs'],
+                title: 'a test gif',
+                contentDescription: 'a test gif',
+                itemUrl: 'some-url.com',
+                hasCaption: false,
+                flags: ['sticker'],
+                url: 'some-url.com',
+              ).toJson(),
+            ],
+          };
+        });
+
+        final response = await tenorClient.posts(ids: ['1234']);
+
+        verify(
+          () => mockTenorHttpClient.request(
+            any(),
+            any(),
+          ),
+        ).called(1);
+
+        expect(response.first.id, '1234');
+      });
+      test('should call request - results null', () async {
+        when(
+          () => mockTenorHttpClient.request(
+            any(),
+            any(),
+          ),
+        ).thenAnswer((_) async {
+          return {
+            'results': null,
+          };
+        });
+
+        final response = await tenorClient.posts(ids: ['1234']);
+
+        verify(
+          () => mockTenorHttpClient.request(
+            any(),
+            any(),
+          ),
+        ).called(1);
+
+        expect(response, []);
+      });
+      test('should call request - results empty', () async {
+        when(
+          () => mockTenorHttpClient.request(
+            any(),
+            any(),
+          ),
+        ).thenAnswer((_) async {
+          return {};
+        });
+
+        final response = await tenorClient.posts(ids: ['1234']);
 
         verify(
           () => mockTenorHttpClient.request(
