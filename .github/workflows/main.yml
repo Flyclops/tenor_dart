@@ -38,6 +38,6 @@ jobs:
       - name: Run tests
         run: dart test --coverage=./coverage
       - name: Convert coverage to lcov
-        run: dart run coverage:format_coverage -i ./coverage -o ./coverage/lcov.info --lcov --report-on lib/
+        run: dart run coverage:format_coverage -i ./coverage -o ./coverage/lcov.info --lcov --check-ignore --report-on lib/
       - name: Send coverage to Coveralls
         uses: coverallsapp/github-action@v2
