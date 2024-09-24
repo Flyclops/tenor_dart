@@ -33,6 +33,7 @@ jobs:
 
       # Consider passing '--fatal-infos' for slightly stricter analysis.
       - name: Analyze project source
+        working-directory: ./lib
         run: dart analyze
 
       - name: Run tests
