@@ -354,7 +354,7 @@ void main() {
                 'image': 'domino.png',
                 'name': 'domino',
                 'path': 'domino',
-                'search_term': 'domino',
+                'searchterm': 'domino',
               },
             ],
           };

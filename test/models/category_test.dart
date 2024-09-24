@@ -14,7 +14,7 @@ void main() {
         'image': testImage,
         'name': testName,
         'path': testPath,
-        'search_term': testSearchTerm,
+        'searchterm': testSearchTerm,
       };
       final category = TenorCategory.fromJson(json);
       expect(category.image, testImage);
@@ -36,7 +36,7 @@ void main() {
         'image': testImage,
         'name': testName,
         'path': testPath,
-        'search_term': testSearchTerm,
+        'searchterm': testSearchTerm,
       });
     });
   });
