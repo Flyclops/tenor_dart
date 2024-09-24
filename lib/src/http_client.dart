@@ -2,7 +2,6 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:http/http.dart';
 import 'package:tenor_dart/tenor_dart.dart';
 
 /// A class for handling requests to HTTP.
@@ -42,7 +41,7 @@ class TenorHttpClient {
       });
     } on TimeoutException {
       throw TenorNetworkException();
-    } on ClientException catch (e) {
+    } on http.ClientException catch (e) {
       if (e.runtimeType.toString() == '_ClientSocketException') {
         throw TenorNetworkException();
       }
