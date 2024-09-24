@@ -1,4 +1,3 @@
-// Not sure why codecov doesn't accurately record this as it's tested
 extension StringX on String {
   String withQueryParams(
     Map<String, dynamic> queryParams, {
