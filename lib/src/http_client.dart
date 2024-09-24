@@ -7,7 +7,7 @@ import 'package:tenor_dart/tenor_dart.dart';
 
 /// A class for handling requests to HTTP.
 ///
-/// Needed as a class mostly so we can test easier.
+/// Needed as a class so it is easier to test/mock.
 class TenorHttpClient {
   final http.Client? _client;
 
