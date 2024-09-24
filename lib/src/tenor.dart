@@ -1,4 +1,3 @@
-import 'package:http/http.dart' as http;
 import 'package:tenor_dart/src/constants/constants.dart';
 import 'package:tenor_dart/src/http_client.dart';
 import 'package:tenor_dart/src/models/category.dart';
