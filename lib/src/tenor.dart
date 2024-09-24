@@ -1,3 +1,4 @@
+import 'package:http/http.dart' as http;
 import 'package:tenor_dart/src/constants/constants.dart';
 import 'package:tenor_dart/src/http_client.dart';
 import 'package:tenor_dart/src/models/category.dart';
@@ -39,6 +40,9 @@ class Tenor {
   /// Network exceptions are handled by the library and will return `null` if the request fails.
   final Duration networkTimeout;
 
+  /// Mostly used for testing purposes.
+  final TenorHttpClient? client;
+
   const Tenor({
     required this.apiKey,
     this.clientKey,
@@ -46,7 +50,11 @@ class Tenor {
     this.country = 'US',
     this.locale = 'en_US',
     this.networkTimeout = const Duration(seconds: 5),
+    this.client,
   });
+
+  // Shortcut for getting which client to use
+  TenorHttpClient get _client => client ?? TenorHttpClient();
 
   /// Get a JSON object that contains a list of the current global featured GIFs. Tenor updates the featured stream regularly throughout the day.
   ///
@@ -70,7 +78,7 @@ class Tenor {
       'country': country,
       'locale': locale,
     });
-    return await TenorHttpClient().getGifs(
+    return await _client.getGifs(
       TenorEndpoint.featured,
       networkTimeout,
       parameters,
@@ -114,7 +122,7 @@ class Tenor {
       'locale': locale,
       'random': random,
     });
-    return await TenorHttpClient().getGifs(
+    return await _client.getGifs(
       TenorEndpoint.search,
       networkTimeout,
       parameters,
@@ -153,7 +161,7 @@ class Tenor {
       'limit': limit.clamp(1, 50),
     });
     // send request
-    var response = await TenorHttpClient().request(path, networkTimeout);
+    var response = await _client.request(path, networkTimeout);
     // return empty
     if (response.isEmpty || response['results'] == null) {
       return <String>[];
@@ -182,7 +190,7 @@ class Tenor {
       'limit': limit.clamp(1, 50),
     });
     // send request
-    var response = await TenorHttpClient().request(path, networkTimeout);
+    var response = await _client.request(path, networkTimeout);
     // return empty
     if (response.isEmpty || response['results'] == null) {
       return <String>[];
@@ -217,7 +225,7 @@ class Tenor {
       'limit': limit.clamp(1, 50),
     });
     // send request
-    var response = await TenorHttpClient().request(path, networkTimeout);
+    var response = await _client.request(path, networkTimeout);
     // return empty
     if (response.isEmpty || response['results'] == null) {
       return <String>[];
@@ -249,7 +257,7 @@ class Tenor {
       'contentfilter': contentFilter.name,
     });
     // ask for data
-    var data = await TenorHttpClient().request(path, networkTimeout);
+    var data = await _client.request(path, networkTimeout);
     // form list of categories
     var list = <TenorCategory>[];
     if (data['tags'] != null) {
@@ -284,7 +292,7 @@ class Tenor {
       'q': search,
     });
 
-    var result = await TenorHttpClient().request(path, networkTimeout);
+    var result = await _client.request(path, networkTimeout);
     if (result.isNotEmpty &&
         result['status']?.toString().toLowerCase() == 'ok') {
       return true;
@@ -312,7 +320,7 @@ class Tenor {
       'media_filter': mediaFilter.join(','),
     });
     // ask for data
-    var data = await TenorHttpClient().request(path, networkTimeout);
+    var data = await _client.request(path, networkTimeout);
     // form list of categories
     var list = <TenorResult>[];
     if (data['results'] != null) {

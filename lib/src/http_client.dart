@@ -11,9 +11,9 @@ import 'package:tenor_dart/tenor_dart.dart';
 class TenorHttpClient {
   final http.Client? _client;
 
-  const TenorHttpClient({
+  const TenorHttpClient([
     http.Client? client,
-  }) : _client = client;
+  ]) : _client = client;
 
   http.Client get client => _client ?? http.Client();
 

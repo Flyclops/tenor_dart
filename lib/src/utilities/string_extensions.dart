@@ -1,5 +1,3 @@
-// coverage:ignore-file
-
 // Not sure why codecov doesn't accurately record this as it's tested
 extension StringX on String {
   String withQueryParams(

@@ -10,9 +10,7 @@ class _ClientSocketException extends Mock implements ClientException {}
 void main() {
   group('TenorHttpClient >', () {
     final mockHttpClient = MockHttpClient();
-    final tenorClient = TenorHttpClient(
-      client: mockHttpClient,
-    );
+    final tenorClient = TenorHttpClient(mockHttpClient);
 
     setUpAll(() {
       registerFallbackValue(Uri());
