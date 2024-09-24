@@ -2,7 +2,6 @@
 
 // coverage:ignore-file
 
-
 part of 'category.dart';
 
 // **************************************************************************
@@ -12,10 +11,10 @@ part of 'category.dart';
 TenorCategory _$TenorCategoryFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
-    disallowNullValues: const ['search_term', 'path', 'image', 'name'],
+    disallowNullValues: const ['searchterm', 'path', 'image', 'name'],
   );
   return TenorCategory(
-    searchTerm: json['search_term'] as String,
+    searchTerm: json['searchterm'] as String,
     path: json['path'] as String,
     image: json['image'] as String,
     name: json['name'] as String,
@@ -24,7 +23,7 @@ TenorCategory _$TenorCategoryFromJson(Map<String, dynamic> json) {
 
 Map<String, dynamic> _$TenorCategoryToJson(TenorCategory instance) =>
     <String, dynamic>{
-      'search_term': instance.searchTerm,
+      'searchterm': instance.searchTerm,
       'path': instance.path,
       'image': instance.image,
       'name': instance.name,

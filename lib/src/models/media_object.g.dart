@@ -12,8 +12,7 @@ part of 'media_object.dart';
 TenorMediaObject _$TenorMediaObjectFromJson(Map<String, dynamic> json) =>
     TenorMediaObject(
       url: json['url'] as String,
-      dimensions:
-          TenorMediaObject.dimensionsfromJson(json['dims'] as List<int>),
+      dimensions: TenorMediaObject.dimensionsfromJson(json['dims'] as List),
       duration: (json['duration'] as num?)?.toDouble() ?? 0,
       size: (json['size'] as num).toInt(),
     );

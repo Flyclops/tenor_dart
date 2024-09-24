@@ -10,7 +10,7 @@ class TenorCategory {
   static const _encoder = JsonEncoder.withIndent('  ');
 
   /// The search term that corresponds to the category. The search term is translated to match the locale of the corresponding request.
-  @JsonKey(name: 'search_term', disallowNullValue: true)
+  @JsonKey(name: 'searchterm', disallowNullValue: true)
   final String searchTerm;
 
   /// The search URL to request if the user selects the category.

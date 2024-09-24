@@ -39,12 +39,12 @@ class TenorMediaObject {
   Map<String, dynamic> toJson() => _$TenorMediaObjectToJson(this);
 
   static TenorMediaObjectDimensions dimensionsfromJson(
-    List<int> dimensions,
+    List<dynamic> dimensions,
   ) {
     return TenorMediaObjectDimensions.fromJson({'dims': dimensions});
   }
 
-  static List<double> dimensionsToJson(TenorMediaObjectDimensions dimensions) {
+  static List<dynamic> dimensionsToJson(TenorMediaObjectDimensions dimensions) {
     return [dimensions.width, dimensions.height];
   }
 

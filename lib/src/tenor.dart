@@ -259,6 +259,7 @@ class Tenor {
     var data = await _client.request(path, networkTimeout);
     // form list of categories
     var list = <TenorCategory>[];
+
     if (data['tags'] != null) {
       data['tags'].forEach((tag) {
         list.add(TenorCategory.fromJson(tag));
