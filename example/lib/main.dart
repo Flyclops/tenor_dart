@@ -173,7 +173,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 Row(
                   children: searchResults.map(
                     (gif) {
-                      final tinygif = gif.media.tinygif;
+                      final tinygif = gif.media.tinyGif;
                       if (tinygif == null) {
                         return const SizedBox();
                       }
@@ -197,7 +197,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 Row(
                   children: featuredResults.map(
                     (gif) {
-                      final tinygif = gif.media.tinygif;
+                      final tinygif = gif.media.tinyGif;
                       if (tinygif == null) {
                         return const SizedBox();
                       }
@@ -222,7 +222,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: postsResults.map(
                     (gif) {
-                      final tinygif = gif.media.tinygif;
+                      final tinygif = gif.media.tinyGif;
                       if (tinygif == null) {
                         return const SizedBox();
                       }
@@ -244,9 +244,9 @@ class _MyHomePageState extends State<MyHomePage> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                if (randomGif?.media.tinygif?.url != null)
+                if (randomGif?.media.tinyGif?.url != null)
                   Image.network(
-                    randomGif!.media.tinygif!.url,
+                    randomGif!.media.tinyGif!.url,
                     fit: BoxFit.cover,
                     height: 50,
                     width: 100,

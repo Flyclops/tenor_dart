@@ -9,20 +9,20 @@ import 'package:tenor_dart/tenor_dart.dart';
 ///
 /// Needed as a class so it is easier to test/mock.
 class TenorHttpClient {
-  final http.Client? _client;
+  final http.Client? client;
 
   const TenorHttpClient([
-    http.Client? client,
-  ]) : _client = client;
+    this.client,
+  ]);
 
-  http.Client get client => _client ?? http.Client();
+  http.Client get _client => client ?? http.Client();
 
 // Errors will return error in the body.
 // https://developers.google.com/tenor/guides/response-objects-and-errors
   Future<Map<String, dynamic>> request(String url, Duration timeout) async {
     try {
       final response =
-          await client.get(Uri.parse(tenorApiUrl + url)).timeout(timeout);
+          await _client.get(Uri.parse(tenorApiUrl + url)).timeout(timeout);
       // get json
       final Map<String, dynamic> json = jsonDecode(response.body);
 
