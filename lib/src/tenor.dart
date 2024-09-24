@@ -1,4 +1,5 @@
 import 'package:tenor_dart/src/constants/constants.dart';
+import 'package:tenor_dart/src/http_client.dart';
 import 'package:tenor_dart/src/models/category.dart';
 import 'package:tenor_dart/src/models/response.dart';
 import 'package:tenor_dart/src/models/result.dart';
@@ -69,7 +70,7 @@ class Tenor {
       'country': country,
       'locale': locale,
     });
-    return await getGifs(
+    return await TenorHttpClient().getGifs(
       TenorEndpoint.featured,
       networkTimeout,
       parameters,
@@ -113,7 +114,7 @@ class Tenor {
       'locale': locale,
       'random': random,
     });
-    return await getGifs(
+    return await TenorHttpClient().getGifs(
       TenorEndpoint.search,
       networkTimeout,
       parameters,
@@ -152,9 +153,9 @@ class Tenor {
       'limit': limit.clamp(1, 50),
     });
     // send request
-    var response = await serverRequest(path, networkTimeout);
+    var response = await TenorHttpClient().request(path, networkTimeout);
     // return empty
-    if (response == null || response.isEmpty || response['results'] == null) {
+    if (response.isEmpty || response['results'] == null) {
       return <String>[];
     }
     // return results
@@ -181,9 +182,9 @@ class Tenor {
       'limit': limit.clamp(1, 50),
     });
     // send request
-    var response = await serverRequest(path, networkTimeout);
+    var response = await TenorHttpClient().request(path, networkTimeout);
     // return empty
-    if (response == null || response.isEmpty || response['results'] == null) {
+    if (response.isEmpty || response['results'] == null) {
       return <String>[];
     }
     // return results
@@ -216,9 +217,9 @@ class Tenor {
       'limit': limit.clamp(1, 50),
     });
     // send request
-    var response = await serverRequest(path, networkTimeout);
+    var response = await TenorHttpClient().request(path, networkTimeout);
     // return empty
-    if (response == null || response.isEmpty || response['results'] == null) {
+    if (response.isEmpty || response['results'] == null) {
       return <String>[];
     }
     // return results
@@ -248,10 +249,10 @@ class Tenor {
       'contentfilter': contentFilter.name,
     });
     // ask for data
-    var data = await serverRequest(path, networkTimeout);
+    var data = await TenorHttpClient().request(path, networkTimeout);
     // form list of categories
     var list = <TenorCategory>[];
-    if (data != null && data['tags'] != null) {
+    if (data['tags'] != null) {
       data['tags'].forEach((tag) {
         list.add(TenorCategory.fromJson(tag));
       });
@@ -283,9 +284,8 @@ class Tenor {
       'q': search,
     });
 
-    var result = await serverRequest(path, networkTimeout);
-    if (result != null &&
-        result.isNotEmpty &&
+    var result = await TenorHttpClient().request(path, networkTimeout);
+    if (result.isNotEmpty &&
         result['status']?.toString().toLowerCase() == 'ok') {
       return true;
     }
@@ -312,10 +312,10 @@ class Tenor {
       'media_filter': mediaFilter.join(','),
     });
     // ask for data
-    var data = await serverRequest(path, networkTimeout);
+    var data = await TenorHttpClient().request(path, networkTimeout);
     // form list of categories
     var list = <TenorResult>[];
-    if (data != null && data['results'] != null) {
+    if (data['results'] != null) {
       data['results'].forEach((post) {
         list.add(TenorResult.fromJson(post));
       });

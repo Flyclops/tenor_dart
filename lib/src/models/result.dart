@@ -9,7 +9,6 @@ part 'result.g.dart';
 @JsonSerializable(explicitToJson: true)
 class TenorResult {
   static const _encoder = JsonEncoder.withIndent('  ');
-  static const _decoder = JsonDecoder();
 
   /// A Unix timestamp that represents when this post was created.
   @JsonKey(name: 'created')

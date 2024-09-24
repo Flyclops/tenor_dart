@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:tenor_dart/src/constants/constants.dart';
 import 'package:tenor_dart/src/models/models.dart';
-import 'package:tenor_dart/src/utilities/utilities.dart';
+import 'package:tenor_dart/src/http_client.dart';
 
 part 'response.g.dart';
 
@@ -52,14 +52,18 @@ class TenorResponse {
 
   Map<String, dynamic> toJson() => _$TenorResponseToJson(this);
 
-  Future<TenorResponse?> fetchNext({int limit = 1}) {
-    return getGifs(
+  // TODO look into sticker and random on fetchNext
+  Future<TenorResponse?> fetchNext({
+    int limit = 1,
+    TenorHttpClient httpClient = const TenorHttpClient(),
+  }) {
+    return httpClient.getGifs(
       endpoint!,
       timeout,
       parameters!,
-      limit: limit,
-      contentFilter: contentFilter,
       aspectRatioRange: aspectRatioRange,
+      contentFilter: contentFilter,
+      limit: limit,
       mediaFilter: mediaFilter,
       pos: next,
     );

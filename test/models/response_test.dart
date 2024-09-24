@@ -1,5 +1,8 @@
 import 'package:tenor_dart/tenor_dart.dart';
 import 'package:test/test.dart';
+import 'package:mocktail/mocktail.dart';
+
+import '../mocks/mocks.dart';
 
 void main() {
   final testAspectRatioRange = TenorAspectRatioRange.standard;
@@ -11,8 +14,59 @@ void main() {
   final testResults = <TenorResult>[];
   final testDuration = const Duration(seconds: 10);
 
+  setUpAll(() {
+    registerFallbackValue(testEndpoint);
+    registerFallbackValue(testDuration);
+    registerFallbackValue(testParameters);
+  });
+
   group('TenorResponse >', () {
-    // TODO test fetchNext
+    test('.fetchNext()', () {
+      final mockHttpClient = MockTenorHttpClient();
+      final response = TenorResponse(
+        aspectRatioRange: testAspectRatioRange,
+        contentFilter: testContentFilter,
+        endpoint: testEndpoint,
+        mediaFilter: testMediaFilter,
+        next: testNext,
+        parameters: testParameters,
+        results: testResults,
+        timeout: testDuration,
+      );
+
+      // stub getGifs
+      when(
+        () => mockHttpClient.getGifs(
+          any(),
+          any(),
+          any(),
+          aspectRatioRange: any(named: 'aspectRatioRange'),
+          contentFilter: any(named: 'contentFilter'),
+          limit: any(named: 'limit'),
+          mediaFilter: any(named: 'mediaFilter'),
+          pos: any(named: 'pos'),
+        ),
+      ).thenAnswer((_) async {
+        return response;
+      });
+
+      // call fetchNext
+      response.fetchNext(limit: 2, httpClient: mockHttpClient);
+
+      // verify getGifs was called
+      verify(
+        () => (mockHttpClient.getGifs(
+          any(),
+          any(),
+          any(),
+          aspectRatioRange: any(named: 'aspectRatioRange'),
+          contentFilter: any(named: 'contentFilter'),
+          limit: any(named: 'limit'),
+          mediaFilter: any(named: 'mediaFilter'),
+          pos: any(named: 'pos'),
+        )),
+      ).called(1);
+    });
 
     test('.fromJson()', () {
       final json = {
