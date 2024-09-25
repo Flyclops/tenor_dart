@@ -7,6 +7,8 @@ class TenorApiException implements Exception {
     this.message,
   });
 
+  // coverage:ignore-start
   @override
   String toString() => "TenorApiException code: $code, message: $message";
+  // coverage:ignore-end
 }

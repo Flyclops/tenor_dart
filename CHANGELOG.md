@@ -1,8 +1,11 @@
-# Changelog
+## 0.0.2
 
-All notable changes to this project will be documented in this file.
+- chore: write tests
+- refactor: Created `TenorHttpClient` so testing can be achieved.
+  - `getGifs` is now `TenorHttpClient().getGifs(...)`
+  - `serverRequest` is now `TenorHttpClient().request(...)`
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/) and this project adheres to [Semantic Versioning](https://semver.org/).
+[All Code Changes](https://github.com/Flyclops/tenor_dart/compare/0.0.1...0.0.2)
 
 ## 0.0.1
 

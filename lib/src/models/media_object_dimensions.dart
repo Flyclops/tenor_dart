@@ -2,7 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'media_object_dimensions.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class TenorMediaObjectDimensions {
   @JsonKey(
     name: 'dims',

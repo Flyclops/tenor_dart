@@ -9,7 +9,6 @@ part 'result.g.dart';
 @JsonSerializable(explicitToJson: true)
 class TenorResult {
   static const _encoder = JsonEncoder.withIndent('  ');
-  static const _decoder = JsonDecoder();
 
   /// A Unix timestamp that represents when this post was created.
   @JsonKey(name: 'created')
@@ -81,9 +80,8 @@ class TenorResult {
 
   Map<String, dynamic> toJson() => _$TenorResultToJson(this);
 
-  factory TenorResult.fromString(String message) =>
-      TenorResult.fromJson(_decoder.convert(message));
-
+  // coverage:ignore-start
   @override
   String toString() => _encoder.convert(toJson());
+  // coverage:ignore-end
 }

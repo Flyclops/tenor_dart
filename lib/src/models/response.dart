@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:tenor_dart/src/constants/constants.dart';
 import 'package:tenor_dart/src/models/models.dart';
-import 'package:tenor_dart/src/utilities/utilities.dart';
+import 'package:tenor_dart/src/http_client.dart';
 
 part 'response.g.dart';
 
@@ -11,21 +11,20 @@ part 'response.g.dart';
 @JsonSerializable(explicitToJson: true)
 class TenorResponse {
   static const _encoder = JsonEncoder.withIndent('  ');
-  static const _decoder = JsonDecoder();
 
   @JsonKey(name: 'results')
   final List<TenorResult> results;
 
-  @JsonKey(name: 'aspectRatioRange')
+  @JsonKey(name: 'aspect_ratio_range')
   final TenorAspectRatioRange aspectRatioRange;
 
-  @JsonKey(name: 'contentFilter')
+  @JsonKey(name: 'content_filter')
   final TenorContentFilter contentFilter;
 
   @JsonKey(name: 'endpoint')
   final TenorEndpoint? endpoint;
 
-  @JsonKey(name: 'mediaFilter')
+  @JsonKey(name: 'media_filter')
   final List<String>? mediaFilter;
 
   @JsonKey(name: 'next')
@@ -42,7 +41,7 @@ class TenorResponse {
     this.aspectRatioRange = TenorAspectRatioRange.all,
     this.contentFilter = TenorContentFilter.off,
     this.endpoint,
-    this.mediaFilter = const [TenorMediaFormat.tinygif],
+    this.mediaFilter = const [TenorMediaFormat.tinyGif],
     this.next,
     this.parameters,
     this.timeout = const Duration(seconds: 5),
@@ -53,22 +52,25 @@ class TenorResponse {
 
   Map<String, dynamic> toJson() => _$TenorResponseToJson(this);
 
-  factory TenorResponse.fromString(String message) =>
-      TenorResponse.fromJson(_decoder.convert(message));
-
-  @override
-  String toString() => _encoder.convert(toJson());
-
-  Future<TenorResponse?> fetchNext({int limit = 1}) {
-    return getGifs(
+  // TODO look into sticker and random on fetchNext
+  Future<TenorResponse?> fetchNext({
+    int limit = 1,
+    TenorHttpClient httpClient = const TenorHttpClient(),
+  }) {
+    return httpClient.getGifs(
       endpoint!,
       timeout,
       parameters!,
-      limit: limit,
-      contentFilter: contentFilter,
       aspectRatioRange: aspectRatioRange,
+      contentFilter: contentFilter,
+      limit: limit,
       mediaFilter: mediaFilter,
       pos: next,
     );
   }
+
+  // coverage:ignore-start
+  @override
+  String toString() => _encoder.convert(toJson());
+  // coverage:ignore-end
 }

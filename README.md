@@ -93,5 +93,15 @@ You can see a live example of it in our mobile game [Domino!](https://flyclops.c
 ## What's next?
 
 - Documentation
-- Tests _([Contributions](https://github.com/Flyclops/tenor_dart/blob/main/CONTRIBUTING.md) welcome)_ ^\_^
 - Further improvements
+
+## Contributing
+
+If you read this far then you are awesome! There are a multiple ways in which you can [contribute](https://github.com/Flyclops/tenor_dart/blob/main/CONTRIBUTING.md):
+
+- Pick up any issue marked with "[good first issue](https://github.com/flyclops/tenor_dart/issues?q=is:open+is:issue+label:%22good+first+issue%22)"
+- Propose any feature, enhancement
+- Report a bug
+- Fix a bug
+- Write and improve some documentation
+- Send in a Pull Request 🙏
