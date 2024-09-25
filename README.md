@@ -2,10 +2,10 @@
 
 <p align="center">
   <a href="https://pub.dartlang.org/packages/tenor_dart"><img src="https://img.shields.io/pub/v/tenor_dart.svg" alt="Tenor Dart Pub Package" /></a>
-  <a hhref="https://github.com/Flyclops/tenor_dart/actions/workflows/main.yml"><img src="https://github.com/flyclops/tenor_dart/actions/workflows/main.yml/badge.svg" alt="Build Status" /></a>
+  <a href="https://github.com/Flyclops/tenor_dart/actions/workflows/main.yml"><img src="https://github.com/flyclops/tenor_dart/actions/workflows/main.yml/badge.svg" alt="Build Status" /></a>
   <a href="https://coveralls.io/github/Flyclops/tenor_dart?branch=main"><img src="https://coveralls.io/repos/github/Flyclops/tenor_dart/badge.svg?branch=main" alt="Coverage Status" /></a>
   <a href="https://github.com/flyclops/tenor_dart/stargazers"><img src="https://img.shields.io/github/stars/flyclops/tenor_dart?style=flat" alt="Tenor Dart Stars" /></a>
-  <a href="https://opensource.org/license/bsd-3-clause"><img src="https://img.shields.io/badge/License-BSD_3--Clause-blue.svg" alt="License BSD 3-Clause" /></a>
+  <a href="https://github.com/Flyclops/tenor_dart/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-BSD_3--Clause-blue.svg" alt="License BSD 3-Clause" /></a>
 </p>
 
 This package integrates [Tenor GIF search](https://tenor.com/) into [Dart](https://dart.dev/) by utilizing the [http](https://pub.dev/packages/http) package to communicate directly with the [Tenor API V2](https://developers.google.com/tenor/guides/quickstart).
