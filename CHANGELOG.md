@@ -1,3 +1,9 @@
+## 0.0.5
+
+- chore: Add discontinued notice
+
+[All Code Changes](https://github.com/Flyclops/tenor_dart/compare/0.0.4...0.0.5)
+
 ## 0.0.4
 
 - chore: Revert some dev dependencies so that they run on 2.17.0
