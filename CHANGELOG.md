@@ -1,3 +1,9 @@
+## 0.0.6
+
+- chore: update readme
+
+[All Code Changes](https://github.com/Flyclops/tenor_dart/compare/0.0.5...0.0.6)
+
 ## 0.0.5
 
 - chore: Add discontinued notice
